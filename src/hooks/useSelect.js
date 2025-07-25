@@ -18,6 +18,7 @@ export function useSelect() {
 
   const [stepIndex, setStepIndex] = useState(0);
   const [selections, setSelections] = useState(Array(STEPS.length).fill(null));
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const currentStep = STEPS[stepIndex];
 
@@ -51,6 +52,8 @@ export function useSelect() {
 
     if (stepIndex < STEPS.length - 1) {
       setStepIndex(stepIndex + 1);
+    } else {
+      menuClose();
     }
   }
 
@@ -67,12 +70,22 @@ export function useSelect() {
     }
   }
 
+  function menuOpen() {
+    setIsMenuOpen(true);
+  }
+
+  function menuClose() {
+    setIsMenuOpen(false);
+  }
+
   return {
     stepIndex,
     currentStep,
     selected: selections,
     options,
     onSelect: handleSelect,
-    goBack,
+    isMenuOpen,
+    menuOpen,
+    menuClose,
   };
 }

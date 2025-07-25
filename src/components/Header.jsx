@@ -7,8 +7,7 @@ export default function Header({ switchModeButton }) {
     return (
       <nav className="navbar">
         <main className="header">
-          <h1 className="header-title">Jugadores </h1>
-          <h1 className="header-title">Captain Tsubasa Dream Team </h1>
+          <h1 className="header-title">Kaiser Calc</h1>
 
           {switchModeButton}
           {/* <LanguageSwitcher /> */}

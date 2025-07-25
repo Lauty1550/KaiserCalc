@@ -75,9 +75,9 @@
 
 /* ==== ESTILOS GENERALES ==== */
 
-.custom-select[class*="container"] {
+/* .custom-select[class*="container"] {
   padding: 10px;
-}
+} */
 
 [class*="custom-select__control"] {
   border: 2px solid;

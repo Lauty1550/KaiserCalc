@@ -3,10 +3,19 @@ import Select from "react-select";
 import { useSelect } from "../hooks/useSelect";
 
 export function PlayerSelector() {
-  const { options, selected, onSelect, stepIndex, currentStep } = useSelect();
+  const {
+    options,
+    selected,
+    onSelect,
+    stepIndex,
+    currentStep,
+    isMenuOpen,
+    menuClose,
+    menuOpen,
+  } = useSelect();
 
   return (
-    <main>
+    <main className="player-selector">
       <h2>Seleccionar {currentStep.name}</h2>
       <Select
         className="custom-select"
@@ -17,6 +26,9 @@ export function PlayerSelector() {
         placeholder={`Selecciona ${currentStep.name}`}
         menuShouldBlockScroll={true}
         closeMenuOnSelect={false}
+        menuIsOpen={isMenuOpen}
+        onMenuOpen={menuOpen}
+        onMenuClose={menuClose}
         isClearable
       />
     </main>

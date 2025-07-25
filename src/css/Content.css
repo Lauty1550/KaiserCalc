@@ -1,5 +1,6 @@
 .content {
   margin-left: 25px;
+  text-align: start;
 }
 
 @media (width < 380px) {

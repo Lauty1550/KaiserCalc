@@ -1,0 +1,193 @@
+.player-selector {
+  max-width: 400px;
+}
+
+.player-display {
+  margin-top: 45px;
+  transform: rotate(-5deg);
+  flex-basis: 497px;
+  /* flex-grow: 1; */
+  flex-shrink: 1;
+}
+
+@media (width < 600px) {
+  .player-display {
+    transform: rotate(0);
+  }
+}
+
+.player-info {
+  /* max-width: 1200px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  box-sizing: border-box;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.selector-title {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.character-selection {
+  display: flex;
+  align-items: center;
+}
+
+.character-selection img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.variant-selection {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.bonus-calc {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 100%;
+}
+
+@media (width <600px) {
+  .player-info {
+    gap: 30px 10px;
+  }
+}
+
+@media (width <440px) {
+  [class*="custom-select__menu"] {
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer !important;
+    height: 290px;
+    max-width: 290px;
+  }
+}
+
+/* ==== ESTILOS GENERALES ==== */
+
+.custom-select[class*="container"] {
+  padding: 10px;
+}
+
+[class*="custom-select__control"] {
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+[class*="custom-select__input"] {
+  font-size: 16px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+[class*="custom-select__menu"] {
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer !important;
+  height: 290px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.custom-select [class*="__value-container"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[class*="custom-select__single-value"] {
+  font-weight: bold;
+}
+
+[class*="custom-select__option"] {
+  padding: 10px;
+}
+
+[class*="custom-select__option--is-selected"] {
+  font-weight: bold;
+}
+
+/* ==== COLORES MODO OSCURO ==== */
+.dark-mode {
+  [class*="custom-select__control"] {
+    background-color: #1c1c1c !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+    display: flex !important;
+  }
+
+  [class*="custom-select__input"] {
+    color: #e0e0e0 !important;
+    background-color: #2b2b2b !important;
+  }
+
+  [class*="custom-select__menu"] {
+    background-color: #333 !important;
+    color: white !important;
+  }
+
+  [class*="custom-select__single-value"] {
+    color: white !important;
+  }
+
+  [class*="custom-select__option"] {
+    color: white !important;
+    background-color: transparent !important;
+  }
+
+  [class*="custom-select__option--is-focused"] {
+    background-color: #444 !important;
+  }
+
+  [class*="custom-select__option--is-selected"] {
+    background-color: #666 !important;
+  }
+}
+
+/* ==== COLORES MODO CLARO ==== */
+.light-mode {
+  [class*="custom-select__control"] {
+    background-color: #ffffff !important;
+    border-color: #cccccc !important;
+    color: #333 !important;
+  }
+
+  [class*="custom-select__input"] {
+    color: #333 !important;
+    background-color: #f9f9f9 !important;
+  }
+
+  [class*="custom-select__menu"] {
+    background-color: #ffffff !important;
+    color: #000 !important;
+  }
+
+  [class*="custom-select__single-value"] {
+    color: #000 !important;
+  }
+
+  [class*="custom-select__option"] {
+    color: #000 !important;
+    background-color: transparent !important;
+  }
+
+  [class*="custom-select__option--is-focused"] {
+    background-color: #eee !important;
+  }
+
+  [class*="custom-select__option--is-selected"] {
+    background-color: #ddd !important;
+  }
+}

@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.root {
+  min-height: 100vh;
+}
+
+.dark-mode {
+  .root {
+    background: linear-gradient(
+      135deg,
+      rgb(20, 29, 39) 0%,
+      rgb(31, 41, 55) 40%,
+      rgb(17, 24, 39) 100%
+    );
+    color: #f1f5f9;
+  }
+}
+
+.light-mode {
+  .root {
+    background: linear-gradient(
+      145deg,
+      #f9f9f9 0%,
+      #eaeaea 30%,
+      #dfe6e9 60%,
+      #ffffff 100%
+    );
+    color: rgb(71 85 105);
+  }
+}

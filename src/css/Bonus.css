@@ -1,0 +1,105 @@
+.player-bond {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  border: 2px solid rgb(149 141 90);
+  padding: 5px;
+}
+
+.bonus-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bonus-container legend {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.bonus-input {
+  width: 30px;
+  height: 22px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.afinity-bonus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.afinity-button {
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.25s;
+  cursor: pointer;
+}
+
+.afinity-button:hover {
+  transform: translateY(-2px);
+}
+
+.afinity-button:active {
+  transform: translateY(0);
+}
+
+.afinity-img {
+  width: 40px;
+}
+
+.dark-mode {
+  .afinity-bonus h3 {
+    color: white;
+  }
+}
+
+.afinity-active {
+  color: rgb(185, 40, 40) !important;
+}
+
+.ball-type {
+  transition: transform 0.25s;
+}
+
+.ball-type button {
+  background: transparent;
+  padding: 0;
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.ball-type-active button {
+  background: red;
+}
+
+.ball-type:hover {
+  transform: translateY(-2px);
+}
+
+.ball-type:active {
+  transform: translateY(0);
+}
+
+.ball-type img {
+  width: 100%;
+  height: auto;
+}

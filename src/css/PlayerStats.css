@@ -1,0 +1,465 @@
+.player-stats-wrapper {
+  max-width: 1200px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.player-stats-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 480px;
+  flex-basis: 300px;
+  flex-grow: 1;
+  padding: 16px;
+  font-family: sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 320px;
+}
+
+.stamina-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fce96a;
+  color: #444;
+  padding: 8px 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.stamina-title {
+  font-size: 16px;
+}
+
+.stamina-value {
+  font-size: 16px;
+}
+
+.summary .total {
+  font-size: 18px;
+  color: #1a4c9c;
+  margin-bottom: 4px;
+}
+
+.summary .positions {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.stat-block {
+  border: 2px solid #5577b4;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.category-header {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 6px 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-grid {
+}
+
+.stat-item {
+  background-color: #f5f5f5;
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: normal;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.stat-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0;
+  align-self: start;
+  text-align: start;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.stat-values {
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.bonus-transition {
+  display: inline-block;
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+}
+
+.bonus {
+  color: rgb(230, 215, 56);
+  text-shadow: 0 0 2px black, 0 0 2px black;
+  display: inline-block;
+  text-align: center;
+  margin-left: 6px;
+  width: 105px;
+}
+
+.bonus-level {
+  color: rgb(251 102 198);
+  display: inline-block;
+  margin-left: 6px;
+  text-align: center;
+  text-shadow: 0 0 2px rgb(249 74 170), 0 0 2px rgb(249 74 170);
+  width: 105px;
+}
+
+.evolution-color {
+  color: #db7515;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.stat-total {
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(139 89 199);
+  padding: 1px 6px;
+  border-radius: 6px;
+  text-shadow: 0 0 2px black;
+}
+
+.max-tag {
+  background-color: #dc2626;
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+.level-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.level-buttons button {
+  padding: 2px 6px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.level-buttons button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.level-display {
+  min-width: 20px;
+  text-align: center;
+}
+
+.stat-title {
+  background-color: #1a4c9c;
+}
+
+.extra {
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  /* .player-stats-wrapper {
+    min-width: 80%;
+  } */
+
+  .stat-item {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    height: 48px;
+  }
+
+  .stat-name {
+    width: auto;
+    min-width: 60px;
+    font-size: 14px;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .stat-values {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    text-align: left;
+    max-width: 49px;
+    min-width: 49px;
+  }
+
+  .bonus {
+    font-size: 13px;
+    width: auto;
+    white-space: nowrap;
+    margin-left: 0;
+  }
+
+  .level-buttons {
+    display: flex;
+    gap: 4px;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
+  .level-buttons button {
+    padding: 2px 5px;
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .stat-total {
+    font-size: 14px;
+    padding: 1px 4px;
+  }
+
+  .player-stats-container {
+    padding: 8px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .bonus-level {
+    width: auto;
+    margin-left: 0;
+    margin-top: -9px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .level-bg {
+    width: auto;
+    height: 10px;
+    font-size: 10px;
+  }
+}
+
+.evolution-training {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.evolution-training button {
+  background-color: transparent;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.25s ease, background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.evolution-training button:hover {
+  transform: translateY(-5px);
+  background-color: rgba(30, 144, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.evolution-training button:active {
+  transform: translateY(0);
+  background-color: rgba(30, 144, 255, 0.4);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.max-level-active {
+  background-color: #b93c703b !important;
+}
+
+.botones {
+  display: flex;
+  gap: 5px;
+}
+
+.botones button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level-bg {
+  display: inline-block;
+  padding: 2px 6px;
+  background-image: url("https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Limit-Break.png"); /* Reemplaza con tu ruta */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.hidden-ability-title {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #1a4c9c;
+}
+
+.hidden-abilities-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hidden-abilities-table th {
+  background-color: #5577b4;
+}
+
+.hidden-abilities-table td {
+  border: 1px solid black;
+}
+
+/* .hidden-abilities-table td.name-cell {
+  min-width: 70px;
+} */
+
+.hidden-abilities-table tr.stat-item {
+  display: table-row;
+  background-color: #f5f5f5;
+  border: 1px solid black;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  color: #333;
+  font-weight: 600;
+}
+
+.hidden-ability-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 2px;
+}
+
+.stat-item-evolution {
+  background-color: rgb(240 245 255);
+  border: 1px solid black;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 8px;
+  justify-content: left;
+  align-items: center;
+  white-space: normal;
+  flex-wrap: nowrap;
+  color: black;
+}
+
+.hidden-ability-name {
+  font-weight: 600;
+  color: rgb(20 60 120);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.hidden-ability-description {
+  text-align: center;
+  font-weight: 600;
+  color: rgb(40 40 40);
+}
+
+.hidden-ability-button {
+  width: 26px;
+  height: 26px;
+}
+
+.hidden-ability-title {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.team-skill-section,
+.passive-section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.team-skill-section {
+  border: 2px solid rgb(58 68 74);
+  background-color: rgb(7 103 95);
+}
+
+.passive-section {
+  border: 2px solid rgb(58 68 74);
+  background-color: rgb(118 70 184);
+}
+
+.skills-header {
+  text-align: center;
+  margin: 0;
+}
+
+.team-skill-main,
+.passive-main {
+  margin: 0;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  border: solid rgb(78 92 102);
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
+  border-radius: 5px 5px 0 0;
+}
+
+.team-skill-main {
+  background-color: rgb(14 160 99);
+}
+
+.passive-main {
+  background-color: rgb(192 113 224);
+}
+
+.skill-title,
+.skill-description {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.skill-description {
+  margin: 0;
+  background-color: white;
+  color: rgb(58 67 74);
+  border-radius: 0 0 10px 10px;
+  border: 0 0 2px 2px solid rgb(78 92 102);
+}

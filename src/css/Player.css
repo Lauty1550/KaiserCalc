@@ -1,0 +1,69 @@
+.player-main {
+  position: relative;
+  width: 100%;
+  max-width: 452px;
+}
+
+.player-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 9/10;
+  border: 1px solid purple;
+  background-image: url("https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Backgrounds/UR%20BackGrounds/card_bg_UR_06.png");
+  box-shadow: 15px 15px 5px rgb(0 0 0 / 50%);
+}
+
+.player-container img {
+  max-width: 100%;
+  max-height: 512px;
+}
+
+.card-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-layer.player {
+  z-index: 2;
+}
+
+.card-layer.player {
+  /* mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%); */
+}
+
+.card-layer.second-frame {
+  z-index: 3;
+}
+
+.card-layer.frame {
+  z-index: 4;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 65px;
+  border: 2px solid rgb(52 121 233 /95%);
+  position: relative;
+  transform: rotate(5deg) skew(-20deg);
+  margin-top: -30px;
+  z-index: 6;
+  background-color: rgb(52 121 233 /95%);
+}
+
+@media (width < 600px) {
+  .footer {
+    transform: skew(-20deg);
+  }
+}

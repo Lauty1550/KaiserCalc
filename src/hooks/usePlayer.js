@@ -1,12 +1,15 @@
+import { COUNTRY_MAP } from "../data/constants";
 import Personajes from "../data/Personajes.json";
 import { useEffect, useState } from "react";
+import Characters from "../data/Characters.json";
 
 export function usePlayer() {
-  const [groupByCountry, setGroupByCountry] = useState();
-  const [groupByCharacter, setGroupByCharecter] = useState();
+  const [groupByCountry, setGroupByCountry] = useState([]);
+  const [groupByCharacter, setGroupByCharecter] = useState([]);
 
   useEffect(() => {
-    groupPlayersByCountry();
+    const agrupadosPorPais = groupPlayersByCountry();
+    groupPlayersByCharacter(agrupadosPorPais);
   }, []);
 
   function groupPlayersByCountry() {
@@ -28,8 +31,7 @@ export function usePlayer() {
     }));
 
     setGroupByCountry(agrupadosPorPais);
-    groupPlayersByCharacter(agrupadosPorPais);
-    return;
+    return agrupadosPorPais;
   }
 
   function groupPlayersByCharacter(agrupadosPorPais) {
@@ -56,5 +58,38 @@ export function usePlayer() {
     setGroupByCharecter(agrupadosPorPersonaje);
   }
 
-  return { groupByCountry, groupByCharacter };
+  function getCountryOptions() {
+    return groupByCountry
+      .map(({ nationality_id, jugadores }) => ({
+        value: nationality_id,
+        label: COUNTRY_MAP[nationality_id] || `ID ${nationality_id}`,
+        count: jugadores.length,
+      }))
+      .sort((a, b) => b.count - a.count);
+  }
+
+  function getCharacterOptions(nationalityId) {
+    if (!nationalityId) return [];
+
+    const country = groupByCountry.find(
+      (c) => c.nationality_id === nationalityId
+    );
+    if (!country) return [];
+
+    const characterIds = new Set(country.jugadores.map((p) => p.character_id));
+
+    return groupByCharacter
+      .filter(({ character_id }) => characterIds.has(character_id))
+      .map(({ character_id, jugadores }) => ({
+        value: character_id,
+        label: Characters[character_id] || `ID ${character_id}`,
+        count: jugadores.length,
+      }))
+      .sort((a, b) => b.count - a.count);
+  }
+
+  return {
+    getCountryOptions,
+    getCharacterOptions,
+  };
 }

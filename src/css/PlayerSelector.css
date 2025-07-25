@@ -94,7 +94,7 @@
 
 [class*="custom-select__menu"] {
   border-radius: 8px;
-  overflow: hidden;
+  overflow: auto;
   cursor: pointer !important;
   height: 290px;
   -webkit-tap-highlight-color: transparent;

@@ -2,6 +2,7 @@ import { COUNTRY_MAP } from "../data/constants";
 import Personajes from "../data/Personajes.json";
 import { useEffect, useState } from "react";
 import Characters from "../data/Characters.json";
+import { buildCloudinaryUrl } from "../functions/buildCloudinaryUrl";
 
 export function usePlayer() {
   const [groupByCountry, setGroupByCountry] = useState([]);
@@ -64,6 +65,7 @@ export function usePlayer() {
         value: nationality_id,
         label: COUNTRY_MAP[nationality_id] || `ID ${nationality_id}`,
         count: jugadores.length,
+        image: `https://res.cloudinary.com/dq5ffjlgd/image/upload/Banderas/${nationality_id}-flag.png`,
       }))
       .sort((a, b) => b.count - a.count);
   }
@@ -84,12 +86,62 @@ export function usePlayer() {
         value: character_id,
         label: Characters[character_id] || `ID ${character_id}`,
         count: jugadores.length,
+        image: `https://res.cloudinary.com/dq5ffjlgd/image/upload/Jugadores/Preview/${character_id}.png`,
       }))
       .sort((a, b) => b.count - a.count);
   }
 
+  function getVariantOptions(selection) {
+    if (!selection) return [];
+
+    const characterId = selection[1].value;
+    const country = selection[0].label;
+    const characterName = selection[1].label;
+
+    const character = groupByCharacter.find(
+      (c) => c.character_id === characterId
+    );
+
+    if (!character) return [];
+
+    const variants = character.jugadores.map(({ id, nick_name, total }) => ({
+      value: id,
+      label: nick_name.en,
+      total,
+      image: buildCloudinaryUrl({
+        nickName: nick_name.en,
+        character: characterName,
+        country,
+      }),
+    }));
+
+    const seen = new Set();
+    const unique = variants.filter((v) => {
+      if (seen.has(v.label)) return false;
+      seen.add(v.label);
+      return true;
+    });
+
+    return unique.sort((a, b) => b.total - a.total);
+  }
+
+  //   return character.jugadores
+  //     .map(({ id, nick_name, total }) => ({
+  //       value: id,
+  //       label: nick_name.en,
+  //       total: total,
+  //       image: buildCloudinaryUrl({
+  //         nickName: nick_name.en,
+  //         character: characterName,
+  //         country,
+  //       }),
+  //     }))
+  //     .sort((a, b) => b.total - a.total);
+  // }
+
   return {
     getCountryOptions,
     getCharacterOptions,
+    getVariantOptions,
   };
 }

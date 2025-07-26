@@ -2,7 +2,12 @@ import { useState } from "react";
 import { usePlayer } from "./usePlayer";
 
 export function useSelect() {
-  const { getCharacterOptions, getCountryOptions } = usePlayer();
+  const { getCharacterOptions, getCountryOptions, getVariantOptions } =
+    usePlayer();
+
+  const [stepIndex, setStepIndex] = useState(0);
+  const [selections, setSelections] = useState([null, null, null]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const STEPS = [
     {
@@ -11,20 +16,27 @@ export function useSelect() {
     },
     {
       name: "Personaje",
-      getOptions: (selectedCountry) =>
-        selectedCountry ? getCharacterOptions(selectedCountry.value) : [],
+      getOptions: () => {
+        const pais = selections[0];
+        return pais ? getCharacterOptions(pais.value) : [];
+      },
+    },
+    {
+      name: "Variante",
+      getOptions: () => {
+        const personaje = selections;
+        return personaje ? getVariantOptions(personaje) : [];
+      },
     },
   ];
 
-  const [stepIndex, setStepIndex] = useState(0);
-  const [selections, setSelections] = useState(Array(STEPS.length).fill(null));
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const currentStep = STEPS[stepIndex];
 
-  const previousSelections = selections.slice(0, stepIndex);
+  let options = currentStep.getOptions();
 
-  let options = currentStep.getOptions(...previousSelections);
+  if (!Array.isArray(options)) {
+    options = [];
+  }
 
   if (stepIndex > 0) {
     options = [
@@ -60,11 +72,9 @@ export function useSelect() {
   function goBack() {
     if (stepIndex > 0) {
       const newStepIndex = stepIndex - 1;
-
       const updatedSelections = [...selections];
       updatedSelections[newStepIndex] = null;
       updatedSelections[newStepIndex + 1] = null;
-
       setSelections(updatedSelections);
       setStepIndex(newStepIndex);
     }

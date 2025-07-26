@@ -1,6 +1,7 @@
 import "../css/PlayerSelector.css";
 import Select from "react-select";
 import { useSelect } from "../hooks/useSelect";
+import { FormatedOptions } from "./FormatedOptions";
 
 export function PlayerSelector() {
   const {
@@ -21,6 +22,7 @@ export function PlayerSelector() {
         className="custom-select"
         classNamePrefix="custom-select"
         options={options}
+        formatOptionLabel={(options) => <FormatedOptions data={options} />}
         value={selected[stepIndex]}
         onChange={onSelect}
         placeholder={`Selecciona ${currentStep.name}`}

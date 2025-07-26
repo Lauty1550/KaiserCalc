@@ -19,18 +19,16 @@ export function PlayerStatsTable({ player, attack, defence, physical }) {
   ];
 
   return (
-    <main>
-      <table>
-        <tbody>
-          {statsList.map(({ label, value }) => (
-            <tr key={label}>
-              <td>
-                {label}: {value}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </main>
+    <table>
+      <tbody>
+        {statsList.map(({ label, value }) => (
+          <tr key={label}>
+            <td>
+              {label}: {value}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }

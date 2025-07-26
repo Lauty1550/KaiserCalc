@@ -1,4 +1,5 @@
 import "../css/Content.css";
+import "../css/PlayerSelector.css";
 import { Player } from "./Player";
 import { PlayerSelector } from "./PlayerSelector";
 import { useSelectedCharacter } from "../hooks/useSelectedCharacter";
@@ -11,8 +12,11 @@ export default function Content() {
   return (
     <main className="content">
       <PlayerSelector onSelectionChange={handleSelectionChange} />
-      <Player character={character} country={country} nickName={nickName} />
-      <PlayerStats id={id} />
+
+      <article className="player-info">
+        <Player character={character} country={country} nickName={nickName} />
+        <PlayerStats id={id} />
+      </article>
     </main>
   );
 }

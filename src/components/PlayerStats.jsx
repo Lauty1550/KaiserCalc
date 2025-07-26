@@ -2,6 +2,7 @@ import { usePlayerStats } from "../hooks/usePlayerStats";
 import { PlayerTeamSkillTable } from "./PlayerTeamSkillTable";
 import { PlayerStatsTable } from "./PlayerStatsTable";
 import { PlayerHiddenTable } from "./PlayerHiddenTable";
+import "../css/Tables.css";
 
 export function PlayerStats({ id }) {
   const {
@@ -17,7 +18,7 @@ export function PlayerStats({ id }) {
   });
 
   return (
-    <main>
+    <section className="tablas-container">
       <PlayerStatsTable
         player={player}
         attack={attack}
@@ -30,6 +31,6 @@ export function PlayerStats({ id }) {
       <br />
 
       <PlayerHiddenTable hiddenAbilities={hiddenAbilities} />
-    </main>
+    </section>
   );
 }

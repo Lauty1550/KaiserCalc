@@ -1,0 +1,36 @@
+.tablas-container {
+  max-width: 480px;
+}
+
+.titulo-tabla-ha {
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid black;
+  background-color: #5577b4;
+}
+
+.elemento-tabla-ha {
+  padding: 1rem;
+  border: 1px solid black;
+  background-color: white;
+  vertical-align: top;
+}
+
+.img-tabla-ha {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border: none;
+}
+
+.name-tabla-ha {
+  color: #143c78;
+  font-weight: 600;
+  text-align: center;
+}
+
+.description-tabla-ha {
+  font-weight: 600;
+  color: #282828;
+}

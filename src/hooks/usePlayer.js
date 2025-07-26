@@ -139,9 +139,14 @@ export function usePlayer() {
   //     .sort((a, b) => b.total - a.total);
   // }
 
+  function getPlayerById({ id }) {
+    return Personajes.Jugadores[id];
+  }
+
   return {
     getCountryOptions,
     getCharacterOptions,
     getVariantOptions,
+    getPlayerById,
   };
 }

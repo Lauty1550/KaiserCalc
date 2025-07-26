@@ -3,7 +3,7 @@ import Select from "react-select";
 import { useSelect } from "../hooks/useSelect";
 import { FormatedOptions } from "./FormatedOptions";
 
-export function PlayerSelector() {
+export function PlayerSelector({ onSelectionChange }) {
   const {
     options,
     selected,
@@ -15,6 +15,16 @@ export function PlayerSelector() {
     menuOpen,
   } = useSelect();
 
+  const handleChange = (option) => {
+    onSelect(option);
+
+    if (onSelectionChange) {
+      const newSelected = [...selected];
+      newSelected[stepIndex] = option;
+      onSelectionChange(newSelected);
+    }
+  };
+
   return (
     <main className="player-selector">
       <h2>Seleccionar {currentStep.name}</h2>
@@ -24,7 +34,7 @@ export function PlayerSelector() {
         options={options}
         formatOptionLabel={(options) => <FormatedOptions data={options} />}
         value={selected[stepIndex]}
-        onChange={onSelect}
+        onChange={handleChange}
         placeholder={`Selecciona ${currentStep.name}`}
         menuShouldBlockScroll={true}
         closeMenuOnSelect={false}

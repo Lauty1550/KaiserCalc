@@ -1,16 +1,12 @@
-import { useEffect, useState } from "react";
+import { usePlayerContext } from "../context/PlayerContext";
 import "../css/PlayerStats.css";
+import { usePlayerTable } from "../hooks/usePlayerTable";
 import { ArrowLeft } from "./ArrowLeft";
 import { ArrowRight } from "./ArrowRight";
 
-export function PlayerTeamSkillTable({ teamSkill, passive, onViewModeChange }) {
-  const [viewMode, setViewMode] = useState("skills");
-
-  useEffect(() => {
-    if (onViewModeChange) {
-      onViewModeChange(viewMode);
-    }
-  }, [viewMode, onViewModeChange]);
+export function PlayerTeamSkillTable() {
+  const { teamSkill, passive } = usePlayerContext();
+  const { showStats, showHiddenAbility } = usePlayerTable();
 
   if (!teamSkill) return <p>Cargando...</p>;
 
@@ -21,16 +17,7 @@ export function PlayerTeamSkillTable({ teamSkill, passive, onViewModeChange }) {
   const { Name: namePS, Description: descriptionPS, Link: linkPS } = passive[0];
 
   const urlObj = new URL(linkPS);
-
   const id = urlObj.searchParams.get("id");
-
-  function showStats() {
-    setViewMode("stats");
-  }
-
-  function showHiddenAbility() {
-    setViewMode("hidden");
-  }
 
   return (
     <div className="arrow-buttons">

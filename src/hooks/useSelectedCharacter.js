@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { usePlayerContext } from "../context/PlayerContext";
 
 export function useSelectedCharacter() {
   const [character, setCharacter] = useState("");
   const [country, setCountry] = useState("");
   const [nickName, setNickName] = useState("");
-  const [id, setId] = useState();
+  const { setId } = usePlayerContext();
 
   function defaultCharacter() {
     setCharacter("Karl Heinz Schneider");
@@ -33,5 +34,5 @@ export function useSelectedCharacter() {
     }
   };
 
-  return { character, country, nickName, handleSelectionChange, id };
+  return { character, country, nickName, handleSelectionChange };
 }

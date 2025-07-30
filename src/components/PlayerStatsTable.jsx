@@ -1,41 +1,22 @@
-import { useEffect, useState } from "react";
 import "../css/PlayerStats.css";
 import { usePlayerStats } from "../hooks/usePlayerStats";
 import { ArrowLeft } from "./ArrowLeft";
 import { ArrowRight } from "./ArrowRight";
+import { usePlayerTable } from "../hooks/usePlayerTable";
+import { usePlayerContext } from "../context/PlayerContext";
 
-export function PlayerStatsTable({
-  player,
-  attack,
-  defence,
-  physical,
-  onViewModeChange,
-}) {
-  const { formatStat } = usePlayerStats({ id: 0 });
-  const [viewMode, setViewMode] = useState("stats");
-
-  useEffect(() => {
-    if (onViewModeChange) {
-      onViewModeChange(viewMode);
-    }
-  }, [viewMode, onViewModeChange]);
+export function PlayerStatsTable() {
+  const { player, attack, defence, physical } = usePlayerContext();
+  const { formatStat } = usePlayerStats();
+  const { showHiddenAbility, showSkills } = usePlayerTable();
 
   if (!player) return <p>Cargando jugador...</p>;
 
   const isGK = player.positions == "GK";
 
-  function showHiddenHability() {
-    if (player?.hidden_abilities && player.hidden_abilities.length > 0) {
-      setViewMode("hidden");
-    }
-  }
-
-  function showSkills() {
-    setViewMode("skills");
-  }
   return (
     <div className="arrow-buttons">
-      <ArrowLeft onClick={showHiddenHability} />
+      <ArrowLeft onClick={showHiddenAbility} />
       <section className="player-stats-container">
         <section className="stamina-bar">
           <span className="stamina-title">⚡ Stamina</span>

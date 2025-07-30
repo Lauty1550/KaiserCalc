@@ -1,30 +1,12 @@
-import { useEffect, useState } from "react";
 import "../css/Tables.css";
 import { ArrowLeft } from "./ArrowLeft";
 import { ArrowRight } from "./ArrowRight";
+import { usePlayerTable } from "../hooks/usePlayerTable";
+import { usePlayerContext } from "../context/PlayerContext";
 
-export function PlayerHiddenTable({ hiddenAbilities, onViewModeChange }) {
-  const [viewMode, setViewMode] = useState("hidden");
-
-  useEffect(() => {
-    if (onViewModeChange) {
-      onViewModeChange(viewMode);
-    }
-  }, [viewMode, onViewModeChange]);
-
-  useEffect(() => {
-    if (!Array.isArray(hiddenAbilities) || hiddenAbilities.length === 0) {
-      setViewMode("stats");
-    }
-  }, []);
-
-  function showStats() {
-    setViewMode("stats");
-  }
-
-  function showSkills() {
-    setViewMode("skills");
-  }
+export function PlayerHiddenTable() {
+  const { hiddenAbilities } = usePlayerContext();
+  const { showSkills, showStats } = usePlayerTable();
 
   return (
     <div className="arrow-buttons">

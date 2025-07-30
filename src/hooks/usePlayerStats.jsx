@@ -1,16 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { usePlayer } from "./usePlayer";
 import "../css/PlayerStats.css";
+import { usePlayerContext } from "../context/PlayerContext";
 
-export function usePlayerStats({ id }) {
+export function usePlayerStats() {
   const { getPlayerById } = usePlayer();
-  const [player, setPlayer] = useState(null);
-  const [attack, setAttack] = useState(0);
-  const [defence, setDefence] = useState(0);
-  const [physical, setPhysical] = useState(0);
-  const [teamSkill, setTeamSkill] = useState();
-  const [hiddenAbilities, setHiddenAbilities] = useState([]);
-  const [passive, setPassive] = useState();
+
+  const {
+    id,
+    player,
+    setPlayer,
+    attack,
+    setAttack,
+    defence,
+    setDefence,
+    physical,
+    setPhysical,
+    teamSkill,
+    setTeamSkill,
+    passive,
+    setPassive,
+    hiddenAbilities,
+    setHiddenAbilities,
+  } = usePlayerContext();
 
   useEffect(() => {
     if (!id || id === 0) return;
@@ -21,7 +33,7 @@ export function usePlayerStats({ id }) {
   useEffect(() => {
     if (!player) return;
 
-    console.log(player);
+    console.log("usePlayerStats Player ", player);
 
     const ataque =
       (player.stats?.Dribble?.Base ?? 0) +

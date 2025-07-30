@@ -7,7 +7,7 @@ import { PlayerStats } from "./PlayerStats";
 import { PlayerInGameStats } from "./PlayerInGameStats";
 
 export default function Content() {
-  const { character, country, nickName, handleSelectionChange, id } =
+  const { character, country, nickName, handleSelectionChange } =
     useSelectedCharacter();
 
   return (
@@ -16,8 +16,8 @@ export default function Content() {
 
       <article className="player-info">
         <Player character={character} country={country} nickName={nickName} />
-        <PlayerStats id={id} />
-        <PlayerInGameStats id={id} />
+        <PlayerStats />
+        <PlayerInGameStats />
       </article>
     </main>
   );

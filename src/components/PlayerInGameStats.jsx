@@ -2,8 +2,8 @@ import { usePlayerInGameStats } from "../hooks/usePlayerInGameStats";
 import { usePlayerStats } from "../hooks/usePlayerStats";
 import { ActionStat } from "./ActionStat";
 
-export function PlayerInGameStats({ id }) {
-  const { player } = usePlayerStats({ id });
+export function PlayerInGameStats() {
+  const { player } = usePlayerStats();
   const { shot, dribble, pass, tackle, block, intercept, punch, catchStat } =
     usePlayerInGameStats({ stats: player?.stats ?? [] });
 

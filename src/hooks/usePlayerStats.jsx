@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePlayer } from "./usePlayer";
+import "../css/PlayerStats.css";
 
 export function usePlayerStats({ id }) {
   const { getPlayerById } = usePlayer();
@@ -12,7 +13,7 @@ export function usePlayerStats({ id }) {
   const [passive, setPassive] = useState();
 
   useEffect(() => {
-    if (!id) return;
+    if (!id || id === 0) return;
     const jugador = getPlayerById({ id });
     setPlayer(jugador);
   }, [id]);
@@ -49,6 +50,21 @@ export function usePlayerStats({ id }) {
     setPassive(pasiva);
   }, [player]);
 
+  const formatStat = (stat, bool) => {
+    const base = stat?.Base ?? 0;
+    const bonus = stat?.Bonus ?? 0;
+    const total = base + bonus;
+    if (bool) {
+      return (
+        <div className="stat-values">
+          {`${base} `}
+          <span className="bonus">{`+ ${bonus}`} </span>
+        </div>
+      );
+    }
+    return total;
+  };
+
   return {
     player,
     attack,
@@ -57,5 +73,6 @@ export function usePlayerStats({ id }) {
     teamSkill,
     hiddenAbilities,
     passive,
+    formatStat,
   };
 }

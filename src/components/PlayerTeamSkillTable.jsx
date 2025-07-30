@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
 import "../css/PlayerStats.css";
+import { ArrowLeft } from "./ArrowLeft";
+import { ArrowRight } from "./ArrowRight";
 
-export function PlayerTeamSkillTable({ teamSkill, passive }) {
+export function PlayerTeamSkillTable({ teamSkill, passive, onViewModeChange }) {
+  const [viewMode, setViewMode] = useState("skills");
+
+  useEffect(() => {
+    if (onViewModeChange) {
+      onViewModeChange(viewMode);
+    }
+  }, [viewMode, onViewModeChange]);
+
   if (!teamSkill) return <p>Cargando...</p>;
 
   if (passive.length < 1)
@@ -13,37 +24,49 @@ export function PlayerTeamSkillTable({ teamSkill, passive }) {
 
   const id = urlObj.searchParams.get("id");
 
-  return (
-    <>
-      <section className="team-skill-section">
-        <h3 className="skills-header">Team Skill</h3>
-        <div className="skill-item">
-          <figure className="team-skill-main">
-            <img
-              src="https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/team-skill.png"
-              className="hidden-ability-icon"
-              alt="Team Skill"
-            />
-            <span className="skill-title">{nameTS.en}</span>
-          </figure>
-          <p className="skill-description">{descriptionTS.en}</p>
-        </div>
-      </section>
+  function showStats() {
+    setViewMode("stats");
+  }
 
-      <section className="passive-section">
-        <h3 className="skills-header">Passive</h3>
-        <div className="skill-item">
-          <div className="passive-main">
-            <img
-              src={`https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/passive/${id}-passive.png`}
-              className="hidden-ability-icon"
-              alt="Passive Skill"
-            />
-            <span className="skill-title">{namePS.en}</span>
+  function showHiddenAbility() {
+    setViewMode("hidden");
+  }
+
+  return (
+    <div className="arrow-buttons">
+      <ArrowLeft onClick={showStats} />
+      <div>
+        <section className="team-skill-section">
+          <h3 className="skills-header">Team Skill</h3>
+          <div className="skill-item">
+            <figure className="team-skill-main">
+              <img
+                src="https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/team-skill.png"
+                className="hidden-ability-icon"
+                alt="Team Skill"
+              />
+              <span className="skill-title">{nameTS.en}</span>
+            </figure>
+            <p className="skill-description">{descriptionTS.en}</p>
           </div>
-          <div className="skill-description">{descriptionPS.en}</div>
-        </div>
-      </section>
-    </>
+        </section>
+
+        <section className="passive-section">
+          <h3 className="skills-header">Passive</h3>
+          <div className="skill-item">
+            <div className="passive-main">
+              <img
+                src={`https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/passive/${id}-passive.png`}
+                className="hidden-ability-icon"
+                alt="Passive Skill"
+              />
+              <span className="skill-title">{namePS.en}</span>
+            </div>
+            <div className="skill-description">{descriptionPS.en}</div>
+          </div>
+        </section>
+      </div>
+      <ArrowRight onClick={showHiddenAbility} />
+    </div>
   );
 }

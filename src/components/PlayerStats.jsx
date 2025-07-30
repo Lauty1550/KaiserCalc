@@ -1,8 +1,10 @@
-import { usePlayerStats } from "../hooks/usePlayerStats";
 import { PlayerTeamSkillTable } from "./PlayerTeamSkillTable";
 import { PlayerStatsTable } from "./PlayerStatsTable";
 import { PlayerHiddenTable } from "./PlayerHiddenTable";
 import "../css/Tables.css";
+import "../css/PlayerStatsAnimations.css";
+import { useState } from "react";
+import { usePlayerStats } from "../hooks/usePlayerStats";
 
 export function PlayerStats({ id }) {
   const {
@@ -17,20 +19,34 @@ export function PlayerStats({ id }) {
     id,
   });
 
+  const [viewMode, setViewMode] = useState("stats");
+
   return (
     <section className="tablas-container">
-      <PlayerStatsTable
-        player={player}
-        attack={attack}
-        defence={defence}
-        physical={physical}
-      />
-      <br />
+      {viewMode === "stats" && (
+        <PlayerStatsTable
+          player={player}
+          attack={attack}
+          defence={defence}
+          physical={physical}
+          onViewModeChange={setViewMode}
+        />
+      )}
 
-      <PlayerTeamSkillTable teamSkill={teamSkill} passive={passive} />
-      <br />
+      {viewMode === "skills" && (
+        <PlayerTeamSkillTable
+          teamSkill={teamSkill}
+          passive={passive}
+          onViewModeChange={setViewMode}
+        />
+      )}
 
-      <PlayerHiddenTable hiddenAbilities={hiddenAbilities} />
+      {viewMode === "hidden" && (
+        <PlayerHiddenTable
+          hiddenAbilities={hiddenAbilities}
+          onViewModeChange={setViewMode}
+        />
+      )}
     </section>
   );
 }

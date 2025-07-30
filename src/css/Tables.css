@@ -2,6 +2,12 @@
   max-width: 480px;
 }
 
+.tabla-ha {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
 .titulo-tabla-ha {
   font-weight: bold;
   padding: 1rem;

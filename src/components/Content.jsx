@@ -5,6 +5,7 @@ import { PlayerSelector } from "./PlayerSelector";
 import { useSelectedCharacter } from "../hooks/useSelectedCharacter";
 import { PlayerStats } from "./PlayerStats";
 import { PlayerInGameStats } from "./PlayerInGameStats";
+import { StatsBonus } from "./StatsBonus";
 
 export default function Content() {
   const { character, country, nickName, handleSelectionChange } =
@@ -17,7 +18,10 @@ export default function Content() {
       <article className="player-info">
         <Player character={character} country={country} nickName={nickName} />
         <PlayerStats />
-        <PlayerInGameStats />
+        <section className="bonus-calc">
+          <StatsBonus />
+          <PlayerInGameStats />
+        </section>
       </article>
     </main>
   );

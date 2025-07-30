@@ -20,7 +20,7 @@ export function PlayerHiddenTable() {
           </tr>
         </thead>
         <tbody>
-          {hiddenAbilities.map((ability, index) => {
+          {hiddenAbilities.map((ability) => {
             const name = ability.Name?.en || "Sin nombre";
             const description = ability.Description?.en || "Sin descripción";
             let abilityId = "";
@@ -36,7 +36,7 @@ export function PlayerHiddenTable() {
             const iconUrl = `https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/hidden%20ability%20icons/${abilityId}-hidden-evolution.png`;
 
             return (
-              <tr key={index}>
+              <tr key={abilityId}>
                 <td className="elemento-tabla-ha ">
                   <img src={iconUrl} alt={name} className="img-tabla-ha" />
                 </td>

@@ -12,6 +12,10 @@ export function PlayerProvider({ children }) {
   const [passive, setPassive] = useState([]);
   const [hiddenAbilities, setHiddenAbilities] = useState([]);
   const [viewMode, setViewMode] = useState("stats");
+  const [bonusTotal, setBonusTotal] = useState(0);
+  const [attackBonus, setAttackBonus] = useState(0);
+  const [defenceBonus, setDefenceBonus] = useState(0);
+  const [physicalBonus, setPhysicalBonus] = useState(0);
 
   return (
     <PlayerContext.Provider
@@ -34,6 +38,14 @@ export function PlayerProvider({ children }) {
         setHiddenAbilities,
         viewMode,
         setViewMode,
+        bonusTotal,
+        setBonusTotal,
+        attackBonus,
+        setAttackBonus,
+        defenceBonus,
+        setDefenceBonus,
+        physicalBonus,
+        setPhysicalBonus,
       }}
     >
       {children}

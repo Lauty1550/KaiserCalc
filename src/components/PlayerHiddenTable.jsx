@@ -12,9 +12,11 @@ export function PlayerHiddenTable({ hiddenAbilities, onViewModeChange }) {
     }
   }, [viewMode, onViewModeChange]);
 
-  if (!Array.isArray(hiddenAbilities) || hiddenAbilities.length === 0) {
-    return <p>No hay habilidades ocultas disponibles.</p>;
-  }
+  useEffect(() => {
+    if (!Array.isArray(hiddenAbilities) || hiddenAbilities.length === 0) {
+      setViewMode("stats");
+    }
+  }, []);
 
   function showStats() {
     setViewMode("stats");

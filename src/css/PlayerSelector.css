@@ -19,9 +19,9 @@
 .player-info {
   /* max-width: 1200px; */
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   gap: 50px;
   box-sizing: border-box;
   margin-left: 20px;

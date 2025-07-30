@@ -4,6 +4,7 @@
   max-width: 500px;
   width: 93%;
   gap: 30px 15px;
+  max-height: 268px;
 }
 
 .action-stat {

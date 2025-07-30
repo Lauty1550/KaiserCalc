@@ -50,7 +50,7 @@ export function usePlayerStats({ id }) {
     setPassive(pasiva);
   }, [player]);
 
-  const formatStat = (stat, bool) => {
+  const formatStat = ({ stat, bool }) => {
     const base = stat?.Base ?? 0;
     const bonus = stat?.Bonus ?? 0;
     const total = base + bonus;

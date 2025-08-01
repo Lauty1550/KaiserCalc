@@ -6,6 +6,7 @@ export function PlayerProvider({ children }) {
   const [id, setId] = useState(0);
   const [player, setPlayer] = useState(null);
   const [stats, setStats] = useState([]);
+  const [statsET, setStatsET] = useState([]);
   const [viewMode, setViewMode] = useState("stats");
   const [bonusTotal, setBonusTotal] = useState(0);
 
@@ -22,6 +23,8 @@ export function PlayerProvider({ children }) {
         setStats,
         bonusTotal,
         setBonusTotal,
+        statsET,
+        setStatsET,
       }}
     >
       {children}

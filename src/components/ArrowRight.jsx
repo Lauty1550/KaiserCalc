@@ -1,3 +1,4 @@
+import "../css/PlayerStats.css";
 export function ArrowRight({ onClick }) {
   return (
     <button
@@ -5,6 +6,7 @@ export function ArrowRight({ onClick }) {
         onClick();
         // DirectionLeft();
       }}
+      className="arrow-buttons-button"
     >
       <img
         className="change-view-button"

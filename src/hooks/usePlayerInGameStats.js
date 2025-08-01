@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { usePlayerContext } from "../context/PlayerContext";
 
 export function usePlayerInGameStats() {
-  const { stats, bonusTotal } = usePlayerContext();
+  const { stats, bonusTotal, statsET } = usePlayerContext();
 
   const [shot, setShot] = useState(0);
   const [dribble, setDribble] = useState(0);
@@ -22,7 +22,7 @@ export function usePlayerInGameStats() {
     tackleCalc();
     catchCalc();
     punchCalc();
-  }, [stats, bonusTotal]);
+  }, [stats, bonusTotal, statsET]);
 
   function applyBonusTotal(value) {
     const bonus = 1 + bonusTotal / 100;
@@ -32,8 +32,8 @@ export function usePlayerInGameStats() {
 
   function shootCalc() {
     if (!stats?.Shot || !stats?.Power) return;
-    const shotAux = stats.Shot;
-    const powerAux = stats.Power;
+    const shotAux = stats.Shot + statsET["Shot"];
+    const powerAux = stats.Power + statsET["Power"];
     const total = applyBonusTotal(shotAux + powerAux / 2);
 
     setShot(total);
@@ -41,8 +41,8 @@ export function usePlayerInGameStats() {
 
   function dribbleCalc() {
     if (!stats?.Dribble || !stats?.Speed) return;
-    const dribbleAux = stats.Dribble;
-    const speedAux = stats.Speed;
+    const dribbleAux = stats.Dribble + statsET["Dribble"];
+    const speedAux = stats.Speed + statsET["Speed"];
     const total = applyBonusTotal(dribbleAux + speedAux / 2);
 
     setDribble(total);
@@ -50,8 +50,8 @@ export function usePlayerInGameStats() {
 
   function passCalc() {
     if (!stats?.Pass || !stats?.Technique) return;
-    const passAux = stats.Pass;
-    const techAux = stats.Technique;
+    const passAux = stats.Pass + statsET["Pass"];
+    const techAux = stats.Technique + +statsET["Technique"];
     const total = applyBonusTotal(passAux + techAux / 2);
 
     setPass(total);
@@ -59,8 +59,8 @@ export function usePlayerInGameStats() {
 
   function blockCalc() {
     if (!stats?.Block || !stats?.Power) return;
-    const blockAux = stats.Block;
-    const powerAux = stats.Power;
+    const blockAux = stats.Block + statsET["Block"];
+    const powerAux = stats.Power + statsET["Power"];
     const total = applyBonusTotal(blockAux + powerAux / 2);
 
     setBlock(total);
@@ -68,8 +68,8 @@ export function usePlayerInGameStats() {
 
   function interceptCalc() {
     if (!stats?.Intercept || !stats?.Technique) return;
-    const intAux = stats.Intercept;
-    const techAux = stats.Technique;
+    const intAux = stats.Intercept + statsET["Intercept"];
+    const techAux = stats.Technique + statsET["Technique"];
     const total = applyBonusTotal(intAux + techAux / 2);
 
     setIntercept(total);
@@ -77,8 +77,8 @@ export function usePlayerInGameStats() {
 
   function tackleCalc() {
     if (!stats?.Tackle || !stats?.Speed) return;
-    const tackleAux = stats.Tackle;
-    const speedAux = stats.Speed;
+    const tackleAux = stats.Tackle + statsET["Tackle"];
+    const speedAux = stats.Speed + statsET["Speed"];
     const total = applyBonusTotal(tackleAux + speedAux / 2);
 
     setTackle(total);
@@ -86,9 +86,9 @@ export function usePlayerInGameStats() {
 
   function catchCalc() {
     if (!stats?.Catch || !stats?.Power || !stats?.Technique) return;
-    const catchAux = stats.Catch;
-    const powerAux = stats.Power;
-    const techAux = stats.Technique;
+    const catchAux = stats.Catch + statsET["Catch"];
+    const powerAux = stats.Power + statsET["Power"];
+    const techAux = stats.Technique + statsET["Technique"];
     const total = applyBonusTotal(catchAux + (powerAux + techAux) / 4);
 
     setCatchStat(total);
@@ -96,9 +96,9 @@ export function usePlayerInGameStats() {
 
   function punchCalc() {
     if (!stats?.Punch || !stats?.Speed || !stats?.Power) return;
-    const punchAux = stats.Punch;
-    const speedAux = stats.Speed;
-    const powerAux = stats.Power;
+    const punchAux = stats.Punch + statsET["Punch"];
+    const speedAux = stats.Speed + statsET["Speed"];
+    const powerAux = stats.Power + statsET["Power"];
     const total = applyBonusTotal(punchAux + (speedAux + powerAux) / 4);
 
     setPunch(total);

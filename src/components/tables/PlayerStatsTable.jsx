@@ -6,7 +6,7 @@ import { usePlayerTable } from "../../hooks/usePlayerTable";
 import { usePlayerContext } from "../../context/PlayerContext";
 
 export function PlayerStatsTable() {
-  const { player, stats } = usePlayerContext();
+  const { player, stats, statsET } = usePlayerContext();
   const {
     formatStat,
     attack,
@@ -14,6 +14,10 @@ export function PlayerStatsTable() {
     physical,
     handleLimitBreak,
     limitBreak,
+    handleEvolutionTraining,
+    evolutionTraining,
+    max,
+    setMax,
   } = usePlayerStats();
   const { showHiddenAbility, showSkills } = usePlayerTable();
 
@@ -28,11 +32,31 @@ export function PlayerStatsTable() {
         <section className="stamina-bar">
           <span className="stamina-title">⚡ Stamina</span>
           <span className="stamina-value">
-            {formatStat({ stat: player.stats?.Stamina, bool: false })}
+            {player.stats?.Stamina.Base + statsET.Stamina}
           </span>
         </section>
 
-        <button onClick={handleLimitBreak}> LB</button>
+        <div className="nav">
+          <button
+            onClick={() => setMax(!max)}
+            className={max ? "stats-buttons max-active" : "stats-buttons"}
+          >
+            <img src="https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Max-Limit-Break.png" />
+          </button>
+
+          <button
+            onClick={handleLimitBreak}
+            className={limitBreak ? "stats-buttons lb-active" : "stats-buttons"}
+          >
+            25
+          </button>
+
+          <button onClick={handleEvolutionTraining} className="stats-buttons">
+            <img
+              src={`https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Evolution-Training-${evolutionTraining}.png`}
+            />
+          </button>
+        </div>
 
         <section className="summary">
           <h4 className="total">Total: {player.total ?? "--"}</h4>
@@ -45,7 +69,11 @@ export function PlayerStatsTable() {
 
                 <div className="stat-item">
                   <div className="stat-name">Catch</div>
-                  {formatStat({ stat: player.stats?.Catch, bool: true })}
+                  {formatStat({
+                    stat: player.stats?.Catch,
+                    bool: true,
+                    atributo: "Catch",
+                  })}
                   <div
                     className={
                       limitBreak ? "stat-total stat-total-lb" : "stat-total"
@@ -57,7 +85,11 @@ export function PlayerStatsTable() {
 
                 <div className="stat-item">
                   <div className="stat-name">Punch</div>
-                  {formatStat({ stat: player.stats?.Punch, bool: true })}
+                  {formatStat({
+                    stat: player.stats?.Punch,
+                    bool: true,
+                    atributo: "Punch",
+                  })}
                   <div
                     className={
                       limitBreak ? "stat-total stat-total-lb" : "stat-total"
@@ -79,37 +111,49 @@ export function PlayerStatsTable() {
 
                 <div className="stat-item">
                   <div className="stat-name">Dribble</div>
-                  {formatStat({ stat: player.stats?.Dribble, bool: true })}
+                  {formatStat({
+                    stat: player.stats?.Dribble,
+                    bool: true,
+                    atributo: "Dribble",
+                  })}
                   <div
                     className={
                       limitBreak ? "stat-total stat-total-lb" : "stat-total"
                     }
                   >
-                    {stats.Dribble}
+                    {stats.Dribble + statsET.Dribble}
                   </div>
                 </div>
 
                 <div className="stat-item">
                   <div className="stat-name">Shot</div>
-                  {formatStat({ stat: player.stats?.Shot, bool: true })}
+                  {formatStat({
+                    stat: player.stats?.Shot,
+                    bool: true,
+                    atributo: "Shot",
+                  })}
                   <div
                     className={
                       limitBreak ? "stat-total stat-total-lb" : "stat-total"
                     }
                   >
-                    {stats.Shot}
+                    {stats.Shot + statsET.Shot}
                   </div>
                 </div>
 
                 <div className="stat-item">
                   <div className="stat-name">Pass</div>
-                  {formatStat({ stat: player.stats?.Pass, bool: true })}
+                  {formatStat({
+                    stat: player.stats?.Pass,
+                    bool: true,
+                    atributo: "Pass",
+                  })}
                   <div
                     className={
                       limitBreak ? "stat-total stat-total-lb" : "stat-total"
                     }
                   >
-                    {stats.Pass}
+                    {stats.Pass + +statsET.Pass}
                   </div>
                 </div>
               </div>
@@ -123,37 +167,49 @@ export function PlayerStatsTable() {
 
                 <div className="stat-item">
                   <div className="stat-name">Tackle</div>
-                  {formatStat({ stat: player.stats?.Tackle, bool: true })}
+                  {formatStat({
+                    stat: player.stats?.Tackle,
+                    bool: true,
+                    atributo: "Tackle",
+                  })}
                   <div
                     className={
                       limitBreak ? "stat-total stat-total-lb" : "stat-total"
                     }
                   >
-                    {stats.Tackle}
+                    {stats.Tackle + statsET.Tackle}
                   </div>
                 </div>
 
                 <div className="stat-item">
                   <div className="stat-name">Block</div>
-                  {formatStat({ stat: player.stats?.Block, bool: true })}
+                  {formatStat({
+                    stat: player.stats?.Block,
+                    bool: true,
+                    atributo: "Block",
+                  })}
                   <div
                     className={
                       limitBreak ? "stat-total stat-total-lb" : "stat-total"
                     }
                   >
-                    {stats.Block}
+                    {stats.Block + statsET.Block}
                   </div>
                 </div>
 
                 <div className="stat-item">
                   <div className="stat-name">Intercept</div>
-                  {formatStat({ stat: player.stats?.Intercept, bool: true })}
+                  {formatStat({
+                    stat: player.stats?.Intercept,
+                    bool: true,
+                    atributo: "Intercept",
+                  })}
                   <div
                     className={
                       limitBreak ? "stat-total stat-total-lb" : "stat-total"
                     }
                   >
-                    {stats.Intercept}
+                    {stats.Intercept + statsET.Intercept}
                   </div>
                 </div>
               </div>
@@ -169,37 +225,49 @@ export function PlayerStatsTable() {
 
             <div className="stat-item">
               <div className="stat-name">Speed</div>
-              {formatStat({ stat: player.stats?.Speed, bool: true })}
+              {formatStat({
+                stat: player.stats?.Speed,
+                bool: true,
+                atributo: "Speed",
+              })}
               <div
                 className={
                   limitBreak ? "stat-total stat-total-lb" : "stat-total"
                 }
               >
-                {stats.Speed}
+                {stats.Speed + statsET.Speed}
               </div>
             </div>
 
             <div className="stat-item">
               <div className="stat-name">Power</div>
-              {formatStat({ stat: player.stats?.Power, bool: true })}
+              {formatStat({
+                stat: player.stats?.Power,
+                bool: true,
+                atributo: "Power",
+              })}
               <div
                 className={
                   limitBreak ? "stat-total stat-total-lb" : "stat-total"
                 }
               >
-                {stats.Power}
+                {stats.Power + statsET.Power}
               </div>
             </div>
 
             <div className="stat-item">
               <div className="stat-name">Technique</div>
-              {formatStat({ stat: player.stats?.Technique, bool: true })}
+              {formatStat({
+                stat: player.stats?.Technique,
+                bool: true,
+                atributo: "Technique",
+              })}
               <div
                 className={
                   limitBreak ? "stat-total stat-total-lb" : "stat-total"
                 }
               >
-                {stats.Technique}
+                {stats.Technique + statsET.Technique}
               </div>
             </div>
           </div>

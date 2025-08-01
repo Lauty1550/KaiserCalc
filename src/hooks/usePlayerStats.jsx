@@ -11,7 +11,7 @@ export function usePlayerStats() {
   const [attack, setAttack] = useState(0);
   const [defence, setDefence] = useState(0);
   const [physical, setPhysical] = useState(0);
-  const [saving, setSaving] = useState(0);
+  const [saving, tsetSaving] = useState(0);
 
   const { id, player, setPlayer, stats, setStats } = usePlayerContext();
 

@@ -1,9 +1,9 @@
 import { PlayerTeamSkillTable } from "./PlayerTeamSkillTable";
 import { PlayerStatsTable } from "./PlayerStatsTable";
 import { PlayerHiddenTable } from "./PlayerHiddenTable";
-import "../css/Tables.css";
-import "../css/PlayerStatsAnimations.css";
-import { usePlayerContext } from "../context/PlayerContext";
+import "../../css/Tables.css";
+import "../../css/PlayerStatsAnimations.css";
+import { usePlayerContext } from "../../context/PlayerContext";
 
 export function PlayerStats() {
   const { viewMode } = usePlayerContext();

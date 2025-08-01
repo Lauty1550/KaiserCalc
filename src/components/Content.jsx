@@ -3,7 +3,7 @@ import "../css/PlayerSelector.css";
 import { Player } from "./Player";
 import { PlayerSelector } from "./PlayerSelector";
 import { useSelectedCharacter } from "../hooks/useSelectedCharacter";
-import { PlayerStats } from "./PlayerStats";
+import { PlayerStats } from "./tables/PlayerStats";
 import { PlayerInGameStats } from "./PlayerInGameStats";
 import { StatsBonus } from "./StatsBonus";
 

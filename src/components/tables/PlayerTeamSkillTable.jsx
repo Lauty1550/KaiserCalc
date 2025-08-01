@@ -1,20 +1,24 @@
-import { usePlayerContext } from "../context/PlayerContext";
-import "../css/PlayerStats.css";
-import { usePlayerTable } from "../hooks/usePlayerTable";
-import { ArrowLeft } from "./ArrowLeft";
-import { ArrowRight } from "./ArrowRight";
+import { usePlayerContext } from "../../context/PlayerContext";
+import "../../css/PlayerStats.css";
+import { usePlayerTable } from "../../hooks/usePlayerTable";
+import { ArrowLeft } from "../ArrowLeft";
+import { ArrowRight } from "../ArrowRight";
 
 export function PlayerTeamSkillTable() {
-  const { teamSkill, passive } = usePlayerContext();
+  const { player } = usePlayerContext();
   const { showStats, showHiddenAbility } = usePlayerTable();
 
-  if (!teamSkill) return <p>Cargando...</p>;
+  if (!player.team_skills) return <p>Cargando...</p>;
 
-  if (passive.length < 1)
+  if (player.passive_skills.length < 1)
     return <p>No hay Pasiva ni Habilidad de equipo disponibles.</p>;
 
-  const { Name: nameTS, Description: descriptionTS } = teamSkill[0];
-  const { Name: namePS, Description: descriptionPS, Link: linkPS } = passive[0];
+  const { Name: nameTS, Description: descriptionTS } = player.team_skills[0];
+  const {
+    Name: namePS,
+    Description: descriptionPS,
+    Link: linkPS,
+  } = player.passive_skills[0];
 
   const urlObj = new URL(linkPS);
   const id = urlObj.searchParams.get("id");

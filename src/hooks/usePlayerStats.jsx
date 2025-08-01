@@ -1,28 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePlayer } from "./usePlayer";
 import "../css/PlayerStats.css";
 import { usePlayerContext } from "../context/PlayerContext";
 
 export function usePlayerStats() {
   const { getPlayerById } = usePlayer();
+  const [evolutionTraining, setEvolutionTraining] = useState(0);
+  const [limitBreak, setLimitBreak] = useState(false);
+  const [lbApplied, setLbApplied] = useState(false);
+  const [attack, setAttack] = useState(0);
+  const [defence, setDefence] = useState(0);
+  const [physical, setPhysical] = useState(0);
+  const [saving, setSaving] = useState(0);
 
-  const {
-    id,
-    player,
-    setPlayer,
-    attack,
-    setAttack,
-    defence,
-    setDefence,
-    physical,
-    setPhysical,
-    teamSkill,
-    setTeamSkill,
-    passive,
-    setPassive,
-    hiddenAbilities,
-    setHiddenAbilities,
-  } = usePlayerContext();
+  const { id, player, setPlayer, stats, setStats } = usePlayerContext();
 
   useEffect(() => {
     if (!id || id === 0) return;
@@ -34,33 +25,12 @@ export function usePlayerStats() {
     if (!player) return;
 
     console.log("usePlayerStats Player ", player);
-
-    const ataque =
-      (player.stats?.Dribble?.Base ?? 0) +
-      (player.stats?.Shot?.Base ?? 0) +
-      (player.stats?.Pass?.Base ?? 0);
-
-    const defensa =
-      (player.stats?.Tackle?.Base ?? 0) +
-      (player.stats?.Block?.Base ?? 0) +
-      (player.stats?.Intercept?.Base ?? 0);
-
-    const fisico =
-      (player.stats?.Speed?.Base ?? 0) +
-      (player.stats?.Power?.Base ?? 0) +
-      (player.stats?.Technique?.Base ?? 0);
-
-    const habilidadEquipo = player.team_skills ?? [];
-    const latentes = player.hidden_abilities;
-    const pasiva = player.passive_skills;
-
-    setAttack(ataque);
-    setDefence(defensa);
-    setPhysical(fisico);
-    setTeamSkill(habilidadEquipo);
-    setHiddenAbilities(latentes);
-    setPassive(pasiva);
+    mapStats();
   }, [player]);
+
+  useEffect(() => {
+    sumStats();
+  }, [evolutionTraining, limitBreak]);
 
   const formatStat = ({ stat, bool }) => {
     const base = stat?.Base ?? 0;
@@ -77,14 +47,67 @@ export function usePlayerStats() {
     return total;
   };
 
+  function mapStats() {
+    if (!player) return;
+
+    const data = player.stats;
+    const statsAux = {};
+
+    for (const atributo in data) {
+      const valores = data[atributo];
+      statsAux[atributo] = valores.Base + valores.Bonus;
+    }
+
+    const ataque = statsAux["Shot"] + statsAux["Dribble"] + statsAux["Pass"];
+    const defensa =
+      statsAux["Tackle"] + statsAux["Block"] + statsAux["Intercept"];
+    const fisico =
+      statsAux["Speed"] + statsAux["Power"] + statsAux["Technique"];
+
+    setAttack(ataque);
+    setDefence(defensa);
+    setPhysical(fisico);
+    setStats(statsAux);
+    return;
+  }
+
+  function handleLimitBreak() {
+    setLimitBreak(!limitBreak);
+  }
+
+  function sumStats() {
+    if (!player) return;
+
+    const data = { ...stats };
+
+    if (!lbApplied) {
+      for (const atributo in data) {
+        data[atributo] = data[atributo] + 1000;
+      }
+      setLbApplied(true);
+      setStats(data);
+      return;
+    }
+
+    if (lbApplied) {
+      for (const atributo in data) {
+        data[atributo] = data[atributo] - 1000;
+      }
+      setLbApplied(false);
+      setStats(data);
+      return;
+    }
+  }
+
   return {
-    player,
+    formatStat,
     attack,
     defence,
     physical,
-    teamSkill,
-    hiddenAbilities,
-    passive,
-    formatStat,
+    saving,
+    setLimitBreak,
+    setEvolutionTraining,
+    handleLimitBreak,
+    limitBreak,
   };
 }

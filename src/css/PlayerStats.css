@@ -22,6 +22,7 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
+  user-select: none;
 }
 
 .arrow-buttons button {
@@ -159,10 +160,14 @@
   font-size: 17px;
   font-weight: 700;
   color: white;
-  background-color: rgb(139 89 199);
+  background-color: rgb(184 134 11);
   padding: 1px 6px;
   border-radius: 6px;
   text-shadow: 0 0 2px black;
+}
+
+.stat-total-lb {
+  background-color: rgb(208, 117, 238);
 }
 
 .max-tag {
@@ -264,11 +269,6 @@
     font-size: 12px;
     width: 24px;
     height: 24px;
-  }
-
-  .stat-total {
-    font-size: 14px;
-    padding: 1px 4px;
   }
 
   .player-stats-container {

@@ -8,6 +8,7 @@
   flex-basis: 497px;
   /* flex-grow: 1; */
   flex-shrink: 1;
+  user-select: none;
 }
 
 @media (width < 600px) {

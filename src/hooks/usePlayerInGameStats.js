@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { usePlayerStats } from "../hooks/usePlayerStats";
 import { usePlayerContext } from "../context/PlayerContext";
 
-export function usePlayerInGameStats({ stats }) {
-  const { formatStat } = usePlayerStats({ id: 0 });
-  const { bonusTotal } = usePlayerContext();
+export function usePlayerInGameStats() {
+  const { stats, bonusTotal } = usePlayerContext();
 
   const [shot, setShot] = useState(0);
   const [dribble, setDribble] = useState(0);
@@ -34,8 +32,8 @@ export function usePlayerInGameStats({ stats }) {
 
   function shootCalc() {
     if (!stats?.Shot || !stats?.Power) return;
-    const shotAux = formatStat({ stat: stats.Shot, bool: false });
-    const powerAux = formatStat({ stat: stats.Power, bool: false });
+    const shotAux = stats.Shot;
+    const powerAux = stats.Power;
     const total = applyBonusTotal(shotAux + powerAux / 2);
 
     setShot(total);
@@ -43,8 +41,8 @@ export function usePlayerInGameStats({ stats }) {
 
   function dribbleCalc() {
     if (!stats?.Dribble || !stats?.Speed) return;
-    const dribbleAux = formatStat({ stat: stats.Dribble, bool: false });
-    const speedAux = formatStat({ stat: stats.Speed, bool: false });
+    const dribbleAux = stats.Dribble;
+    const speedAux = stats.Speed;
     const total = applyBonusTotal(dribbleAux + speedAux / 2);
 
     setDribble(total);
@@ -52,8 +50,8 @@ export function usePlayerInGameStats({ stats }) {
 
   function passCalc() {
     if (!stats?.Pass || !stats?.Technique) return;
-    const passAux = formatStat({ stat: stats.Pass, bool: false });
-    const techAux = formatStat({ stat: stats.Technique, bool: false });
+    const passAux = stats.Pass;
+    const techAux = stats.Technique;
     const total = applyBonusTotal(passAux + techAux / 2);
 
     setPass(total);
@@ -61,8 +59,8 @@ export function usePlayerInGameStats({ stats }) {
 
   function blockCalc() {
     if (!stats?.Block || !stats?.Power) return;
-    const blockAux = formatStat({ stat: stats.Block, bool: false });
-    const powerAux = formatStat({ stat: stats.Power, bool: false });
+    const blockAux = stats.Block;
+    const powerAux = stats.Power;
     const total = applyBonusTotal(blockAux + powerAux / 2);
 
     setBlock(total);
@@ -70,8 +68,8 @@ export function usePlayerInGameStats({ stats }) {
 
   function interceptCalc() {
     if (!stats?.Intercept || !stats?.Technique) return;
-    const intAux = formatStat({ stat: stats.Intercept, bool: false });
-    const techAux = formatStat({ stat: stats.Technique, bool: false });
+    const intAux = stats.Intercept;
+    const techAux = stats.Technique;
     const total = applyBonusTotal(intAux + techAux / 2);
 
     setIntercept(total);
@@ -79,8 +77,8 @@ export function usePlayerInGameStats({ stats }) {
 
   function tackleCalc() {
     if (!stats?.Tackle || !stats?.Speed) return;
-    const tackleAux = formatStat({ stat: stats.Tackle, bool: false });
-    const speedAux = formatStat({ stat: stats.Speed, bool: false });
+    const tackleAux = stats.Tackle;
+    const speedAux = stats.Speed;
     const total = applyBonusTotal(tackleAux + speedAux / 2);
 
     setTackle(total);
@@ -88,9 +86,9 @@ export function usePlayerInGameStats({ stats }) {
 
   function catchCalc() {
     if (!stats?.Catch || !stats?.Power || !stats?.Technique) return;
-    const catchAux = formatStat({ stat: stats.Catch, bool: false });
-    const powerAux = formatStat({ stat: stats.Power, bool: false });
-    const techAux = formatStat({ stat: stats.Technique, bool: false });
+    const catchAux = stats.Catch;
+    const powerAux = stats.Power;
+    const techAux = stats.Technique;
     const total = applyBonusTotal(catchAux + (powerAux + techAux) / 4);
 
     setCatchStat(total);
@@ -98,9 +96,9 @@ export function usePlayerInGameStats({ stats }) {
 
   function punchCalc() {
     if (!stats?.Punch || !stats?.Speed || !stats?.Power) return;
-    const punchAux = formatStat({ stat: stats.Punch, bool: false });
-    const speedAux = formatStat({ stat: stats.Speed, bool: false });
-    const powerAux = formatStat({ stat: stats.Power, bool: false });
+    const punchAux = stats.Punch;
+    const speedAux = stats.Speed;
+    const powerAux = stats.Power;
     const total = applyBonusTotal(punchAux + (speedAux + powerAux) / 4);
 
     setPunch(total);

@@ -2,26 +2,37 @@ import { useEffect, useState } from "react";
 import { usePlayerContext } from "../context/PlayerContext";
 
 export function useBonus() {
-  const [teamSkillBonus, setTeamSkillBonus] = useState(0);
-  const [bond, setBond] = useState(0);
-  const [passiveBonus, setPassiveBonus] = useState(0);
+  const [teamSkillBonus, setTeamSkillBonus] = useState();
+  const [bond, setBond] = useState();
+  const [passiveBonus, setPassiveBonus] = useState();
   const [afinityBonus, setAfinityBonus] = useState(false);
   const [volleyBonus, setVolleyBonus] = useState(false);
   const [headerBonus, setheaderBonus] = useState(false);
   const [shotType, setShotType] = useState("shot");
-
-  const { setBonusTotal, setAttackBonus, setDefenceBonus, setPhysicalBonus } =
-    usePlayerContext();
+  const { setBonusTotal } = usePlayerContext();
 
   function totalBonusCalc() {
     let afinity = 0;
+    let bondAux = 0;
+    let passiveAux = 0;
+    let teamSkillAux = 0;
     if (afinityBonus) {
       afinity = 25;
     }
+    if (bond) {
+      bondAux = bond;
+    }
+    if (passiveBonus) {
+      passiveAux = passiveBonus;
+    }
+    if (teamSkillBonus) {
+      teamSkillAux = teamSkillBonus;
+    }
+
     const total =
-      Number(bond) +
-      Number(passiveBonus) +
-      Number(teamSkillBonus) +
+      Number(bondAux) +
+      Number(passiveAux) +
+      Number(teamSkillAux) +
       Number(afinity);
 
     setBonusTotal(total);

@@ -1,12 +1,14 @@
-import "../css/Tables.css";
-import { ArrowLeft } from "./ArrowLeft";
-import { ArrowRight } from "./ArrowRight";
-import { usePlayerTable } from "../hooks/usePlayerTable";
-import { usePlayerContext } from "../context/PlayerContext";
+import "../../css/Tables.css";
+import { ArrowLeft } from "../ArrowLeft";
+import { ArrowRight } from "../ArrowRight";
+import { usePlayerTable } from "../../hooks/usePlayerTable";
+import { usePlayerContext } from "../../context/PlayerContext";
 
 export function PlayerHiddenTable() {
-  const { hiddenAbilities } = usePlayerContext();
+  const { player } = usePlayerContext();
   const { showSkills, showStats } = usePlayerTable();
+
+  const hiddenAbilities = player.hidden_abilities;
 
   return (
     <div className="arrow-buttons">

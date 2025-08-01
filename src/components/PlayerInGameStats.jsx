@@ -5,7 +5,7 @@ import { ActionStat } from "./ActionStat";
 export function PlayerInGameStats() {
   const { player } = usePlayerStats();
   const { shot, dribble, pass, tackle, block, intercept, punch, catchStat } =
-    usePlayerInGameStats({ stats: player?.stats ?? [] });
+    usePlayerInGameStats();
 
   const isGK = player?.positions == "GK";
 

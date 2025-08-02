@@ -1,12 +1,22 @@
 import "./css/Root.css";
-
+import SwitchModeButton from "./components/SwitchModeButton";
 import Header from "./components/Header";
 import Content from "./components/Content";
+import { useDarkMode } from "./hooks/useDarkMode";
 
 function App() {
+  const { darkMode, toggleDarkMode } = useDarkMode();
   return (
     <main className="root">
-      <Header></Header>
+      <Header>
+        switchModeButton=
+        {
+          <SwitchModeButton
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
+        }
+      </Header>
       <Content />
     </main>
   );

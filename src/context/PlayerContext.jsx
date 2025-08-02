@@ -9,6 +9,8 @@ export function PlayerProvider({ children }) {
   const [statsET, setStatsET] = useState([]);
   const [viewMode, setViewMode] = useState("stats");
   const [bonusTotal, setBonusTotal] = useState(0);
+  const [limitBreak, setLimitBreak] = useState(false);
+  const [evolutionTraining, setEvolutionTraining] = useState(0);
 
   return (
     <PlayerContext.Provider
@@ -25,6 +27,10 @@ export function PlayerProvider({ children }) {
         setBonusTotal,
         statsET,
         setStatsET,
+        limitBreak,
+        setLimitBreak,
+        evolutionTraining,
+        setEvolutionTraining,
       }}
     >
       {children}

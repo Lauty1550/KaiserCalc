@@ -1,19 +1,26 @@
 import { COUNTRY_MAP } from "../data/constants";
 import Personajes from "../data/Personajes.json";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Characters from "../data/Characters.json";
 import { buildCloudinaryUrl } from "../functions/buildCloudinaryUrl";
+import { usePlayerContext } from "../context/PlayerContext";
 
 export function usePlayer() {
   const [groupByCountry, setGroupByCountry] = useState([]);
   const [groupByCharacter, setGroupByCharecter] = useState([]);
+  const { id, setPlayer } = usePlayerContext();
 
   useEffect(() => {
+    console.log("Montado");
     const agrupadosPorPais = groupPlayersByCountry();
     groupPlayersByCharacter(agrupadosPorPais);
   }, []);
 
-  function groupPlayersByCountry() {
+  useEffect(() => {
+    getPlayerById();
+  }, [id]);
+
+  const groupPlayersByCountry = useCallback(() => {
     console.log("Se ejecuta map por pais");
 
     const map = new Map();
@@ -33,7 +40,7 @@ export function usePlayer() {
 
     setGroupByCountry(agrupadosPorPais);
     return agrupadosPorPais;
-  }
+  }, []);
 
   function groupPlayersByCharacter(agrupadosPorPais) {
     console.log("Se ejecuta map por personaje");
@@ -139,8 +146,9 @@ export function usePlayer() {
   //     .sort((a, b) => b.total - a.total);
   // }
 
-  function getPlayerById({ id }) {
-    return Personajes.Jugadores[id];
+  function getPlayerById() {
+    const jugador = Personajes.Jugadores[id];
+    setPlayer(jugador);
   }
 
   return {

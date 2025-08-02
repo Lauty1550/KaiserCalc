@@ -1,5 +1,8 @@
+import { usePlayerContext } from "../context/PlayerContext";
 import "../css/Bonus.css";
+import "../css/PlayerStats.css";
 import { useBonus } from "../hooks/useBonus";
+import { usePlayerStats } from "../hooks/usePlayerStats";
 
 export function StatsBonus() {
   const {
@@ -16,10 +19,33 @@ export function StatsBonus() {
     setheaderBonus,
     volleyBonus,
     setVolleyBonus,
+    resetBonus,
   } = useBonus();
+
+  const { handleLimitBreak, evolutionTraining, handleEvolutionTraining } =
+    usePlayerStats();
+
+  const { limitBreak } = usePlayerContext();
 
   return (
     <main className="player-bond">
+      <button
+        onClick={handleLimitBreak}
+        className={limitBreak ? "stats-buttons lb-active" : "stats-buttons"}
+      >
+        25
+      </button>
+
+      <button onClick={handleEvolutionTraining} className="stats-buttons">
+        <img
+          src={`https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Evolution-Training-${evolutionTraining}.png`}
+        />
+      </button>
+
+      <button onClick={resetBonus} className="stats-buttons">
+        <img src="https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Max-Limit-Break.png" />
+      </button>
+
       <fieldset className="bonus-container">
         <legend>Team Skill</legend>
         <input

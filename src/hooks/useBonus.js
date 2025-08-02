@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { usePlayerContext } from "../context/PlayerContext";
 
 export function useBonus() {
-  const [teamSkillBonus, setTeamSkillBonus] = useState();
-  const [bond, setBond] = useState();
-  const [passiveBonus, setPassiveBonus] = useState();
+  const [teamSkillBonus, setTeamSkillBonus] = useState("");
+  const [bond, setBond] = useState("");
+  const [passiveBonus, setPassiveBonus] = useState("");
   const [afinityBonus, setAfinityBonus] = useState(false);
   const [volleyBonus, setVolleyBonus] = useState(false);
   const [headerBonus, setheaderBonus] = useState(false);
@@ -57,6 +57,15 @@ export function useBonus() {
     }
   }
 
+  function resetBonus() {
+    setTeamSkillBonus("");
+    setBond("");
+    setPassiveBonus("");
+    setAfinityBonus(false);
+    setheaderBonus(false);
+    setVolleyBonus(false);
+  }
+
   return {
     handleChange,
     teamSkillBonus,
@@ -71,5 +80,6 @@ export function useBonus() {
     setheaderBonus,
     volleyBonus,
     setVolleyBonus,
+    resetBonus,
   };
 }

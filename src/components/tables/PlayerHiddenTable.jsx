@@ -8,6 +8,8 @@ export function PlayerHiddenTable() {
   const { player } = usePlayerContext();
   const { showSkills, showStats } = usePlayerTable();
 
+  if (!player) return;
+
   const hiddenAbilities = player.hidden_abilities;
 
   return (

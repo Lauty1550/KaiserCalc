@@ -10,11 +10,17 @@ export function PlayerStats() {
 
   return (
     <section className="tablas-container">
-      {viewMode === "stats" && <PlayerStatsTable />}
+      <div style={{ display: viewMode === "stats" ? "block" : "none" }}>
+        <PlayerStatsTable />
+      </div>
 
-      {viewMode === "skills" && <PlayerTeamSkillTable />}
+      <div style={{ display: viewMode === "skills" ? "block" : "none" }}>
+        <PlayerTeamSkillTable />
+      </div>
 
-      {viewMode === "hidden" && <PlayerHiddenTable />}
+      <div style={{ display: viewMode === "hidden" ? "block" : "none" }}>
+        <PlayerHiddenTable />
+      </div>
     </section>
   );
 }

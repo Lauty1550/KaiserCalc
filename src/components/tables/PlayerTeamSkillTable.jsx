@@ -8,6 +8,8 @@ export function PlayerTeamSkillTable() {
   const { player } = usePlayerContext();
   const { showStats, showHiddenAbility } = usePlayerTable();
 
+  if (!player) return;
+
   if (!player.team_skills) return <p>Cargando...</p>;
 
   if (player.passive_skills.length < 1)

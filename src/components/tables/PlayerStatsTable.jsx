@@ -6,22 +6,11 @@ import { usePlayerTable } from "../../hooks/usePlayerTable";
 import { usePlayerContext } from "../../context/PlayerContext";
 
 export function PlayerStatsTable() {
-  const { player, stats, statsET } = usePlayerContext();
-  const {
-    formatStat,
-    attack,
-    defence,
-    physical,
-    handleLimitBreak,
-    limitBreak,
-    handleEvolutionTraining,
-    evolutionTraining,
-    max,
-    setMax,
-  } = usePlayerStats();
+  const { player, stats, statsET, limitBreak } = usePlayerContext();
+  const { formatStat, attack, defence, physical } = usePlayerStats();
   const { showHiddenAbility, showSkills } = usePlayerTable();
 
-  if (!player) return <p>Cargando jugador...</p>;
+  if (!player || statsET.length < 1) return <p>Cargando jugador...</p>;
 
   const isGK = player.positions == "GK";
 
@@ -36,27 +25,7 @@ export function PlayerStatsTable() {
           </span>
         </section>
 
-        <div className="nav">
-          <button
-            onClick={() => setMax(!max)}
-            className={max ? "stats-buttons max-active" : "stats-buttons"}
-          >
-            <img src="https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Max-Limit-Break.png" />
-          </button>
-
-          <button
-            onClick={handleLimitBreak}
-            className={limitBreak ? "stats-buttons lb-active" : "stats-buttons"}
-          >
-            25
-          </button>
-
-          <button onClick={handleEvolutionTraining} className="stats-buttons">
-            <img
-              src={`https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Evolution-Training-${evolutionTraining}.png`}
-            />
-          </button>
-        </div>
+        <div className="nav"></div>
 
         <section className="summary">
           <h4 className="total">Total: {player.total ?? "--"}</h4>

@@ -35,12 +35,13 @@ export function PlayerSelector({ onSelectionChange }) {
         formatOptionLabel={(options) => <FormatedOptions data={options} />}
         value={selected[stepIndex]}
         onChange={handleChange}
-        placeholder={`Selecciona ${currentStep.name}`}
+        placeholder={`${currentStep.placeHolder}`}
         menuShouldBlockScroll={true}
         closeMenuOnSelect={false}
         menuIsOpen={isMenuOpen}
         onMenuOpen={menuOpen}
         onMenuClose={menuClose}
+        isSearchable={false}
         isClearable
       />
     </main>

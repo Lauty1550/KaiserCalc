@@ -21,22 +21,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  /* gap: 16px; */
   user-select: none;
 }
 
 .arrow-buttons-button {
   background: none;
   border: none;
+  transform: 0.25s ease;
 }
 
-.arrow-buttons-button:hover {
+/* .arrow-buttons-button:hover {
   transform: translateY(-5px);
 }
 
 .arrow-buttons-button:active {
   transform: translateY(0);
-}
+} */
 
 .nav {
   display: flex;
@@ -49,9 +50,11 @@
 .stats-buttons {
   background: none;
   border: none;
+  width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 20%;
   transition: transform 0.25s ease, background-color 0.25s ease,
     box-shadow 0.25s ease;
@@ -152,7 +155,6 @@
   font-weight: 600;
   color: #333;
   margin-bottom: 0;
-  align-self: start;
   text-align: start;
   min-width: 70px;
   flex-shrink: 0;
@@ -254,7 +256,7 @@
   margin-top: 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 490px) {
   /* .player-stats-wrapper {
     min-width: 80%;
   } */
@@ -265,7 +267,7 @@
     align-items: center;
     gap: 4px;
     padding: 4px;
-    height: 48px;
+    /* height: 48px; */
   }
 
   .stat-name {
@@ -297,39 +299,10 @@
     margin-left: 0;
   }
 
-  .level-buttons {
-    display: flex;
-    gap: 4px;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    flex-shrink: 0;
-  }
-
-  .level-buttons button {
-    padding: 2px 5px;
-    font-size: 12px;
-    width: 24px;
-    height: 24px;
-  }
-
   .player-stats-container {
     padding: 8px;
     min-width: 0;
     max-width: 100%;
-  }
-
-  .bonus-level {
-    width: auto;
-    margin-left: 0;
-    margin-top: -9px;
-    font-size: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  .level-bg {
-    width: auto;
-    height: 10px;
-    font-size: 10px;
   }
 }
 

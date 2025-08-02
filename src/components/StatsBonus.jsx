@@ -33,7 +33,7 @@ export function StatsBonus() {
         onClick={handleLimitBreak}
         className={limitBreak ? "stats-buttons lb-active" : "stats-buttons"}
       >
-        25
+        <img src="https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Max-Limit-Break.png" />
       </button>
 
       <button onClick={handleEvolutionTraining} className="stats-buttons">
@@ -43,7 +43,7 @@ export function StatsBonus() {
       </button>
 
       <button onClick={resetBonus} className="stats-buttons">
-        <img src="https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Card/Max-Limit-Break.png" />
+        Reset
       </button>
 
       <fieldset className="bonus-container">

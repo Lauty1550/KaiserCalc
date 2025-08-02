@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { usePlayer } from "./usePlayer";
+import { Placeholder } from "react-select/animated";
 
 export function useSelect() {
   const { getCharacterOptions, getCountryOptions, getVariantOptions } =
@@ -12,10 +13,12 @@ export function useSelect() {
   const STEPS = [
     {
       name: "Pais",
+      placeHolder: "Germany",
       getOptions: () => getCountryOptions(),
     },
     {
       name: "Personaje",
+      placeHolder: "Schneider",
       getOptions: () => {
         const pais = selections[0];
         return pais ? getCharacterOptions(pais.value) : [];
@@ -23,6 +26,7 @@ export function useSelect() {
     },
     {
       name: "Variante",
+      placeHolder: "Charge of the Young Emperor",
       getOptions: () => {
         const personaje = selections;
         return personaje ? getVariantOptions(personaje) : [];

@@ -22,7 +22,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   gap: 50px;
   box-sizing: border-box;
   margin-left: 20px;
@@ -84,6 +84,7 @@
   border: 2px solid;
   border-radius: 8px;
   padding: 4px;
+  height: 53px;
 }
 
 [class*="custom-select__input"] {

@@ -41,7 +41,7 @@ export function usePlayerStats() {
       return (
         <div
           className={
-            statsET[atributo] > 0
+            statsET[atributo] > 1000
               ? "stat-values evolution-color"
               : "stat-values"
           }

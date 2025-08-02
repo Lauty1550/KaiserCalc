@@ -179,5 +179,6 @@ export function usePlayerStats() {
     handleLimitBreak,
     handleEvolutionTraining,
     evolutionTraining,
+    setSaving,
   };
 }

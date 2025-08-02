@@ -16,8 +16,13 @@ export function PlayerStatsTable() {
 
   return (
     <div className="arrow-buttons">
-      <ArrowLeft onClick={showHiddenAbility} />
       <section className="player-stats-container">
+        <header className="table-header">
+          <ArrowLeft onClick={showHiddenAbility} />
+          <h2 className="table-title"> Stats</h2>
+          <ArrowRight onClick={showSkills} />
+        </header>
+
         <section className="stamina-bar">
           <span className="stamina-title">⚡ Stamina</span>
           <span className="stamina-value">
@@ -255,7 +260,6 @@ export function PlayerStatsTable() {
           </footer>
         </section>
       </section>
-      <ArrowRight onClick={showSkills} />
     </div>
   );
 }

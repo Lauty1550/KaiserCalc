@@ -1,9 +1,9 @@
+import { usePlayerContext } from "../context/PlayerContext";
 import { usePlayerInGameStats } from "../hooks/usePlayerInGameStats";
-import { usePlayerStats } from "../hooks/usePlayerStats";
 import { ActionStat } from "./ActionStat";
 
 export function PlayerInGameStats() {
-  const { player } = usePlayerStats();
+  const { player } = usePlayerContext();
   const { shot, dribble, pass, tackle, block, intercept, punch, catchStat } =
     usePlayerInGameStats();
 

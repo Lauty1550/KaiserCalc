@@ -21,6 +21,10 @@ export function usePlayerStats() {
   } = usePlayerContext();
 
   useEffect(() => {
+    console.log("Montando usePlayerStats");
+  }, []);
+
+  useEffect(() => {
     if (!player) return;
 
     mapStats();
@@ -29,14 +33,21 @@ export function usePlayerStats() {
   }, [player]);
 
   useEffect(() => {
+    console.log("cambio");
+  }, [statsET]);
+
+  useEffect(() => {
     sumEvolutionTraining();
   }, [limitBreak, evolutionTraining]);
 
   const formatStat = ({ stat, bool, atributo }) => {
-    let base = stat?.Base ?? 0;
+    if (!stat.Base || !stat.Bonus) return;
+    let base = stat.Base;
     base += statsET[atributo];
-    const bonus = stat?.Bonus ?? 0;
+    const bonus = stat.Bonus;
     const total = base + bonus;
+
+    // console.log("atributo: ", atributo, " valor: ", stat, " display ", base);
     if (bool) {
       return (
         <div
@@ -59,7 +70,7 @@ export function usePlayerStats() {
 
     const data = player.stats;
     const statsAux = {};
-    const statsETAux = {};
+    const statsETAux = { ...statsAux };
 
     for (const atributo in data) {
       const valores = data[atributo];
@@ -79,16 +90,6 @@ export function usePlayerStats() {
     setStats(statsAux);
     setStatsET(statsETAux);
     return;
-  }
-
-  function handleLimitBreak() {
-    setLimitBreak(!limitBreak);
-  }
-
-  function handleEvolutionTraining() {
-    if (evolutionTraining < 4) {
-      setEvolutionTraining((prev) => prev + 1);
-    } else setEvolutionTraining(0);
   }
 
   // function sumStats() {
@@ -174,10 +175,6 @@ export function usePlayerStats() {
     defence,
     physical,
     saving,
-    setLimitBreak,
-    setEvolutionTraining,
-    handleLimitBreak,
-    handleEvolutionTraining,
     evolutionTraining,
     setSaving,
   };

@@ -2,7 +2,7 @@ import { usePlayerContext } from "../context/PlayerContext";
 import "../css/Bonus.css";
 import "../css/PlayerStats.css";
 import { useBonus } from "../hooks/useBonus";
-import { usePlayerStats } from "../hooks/usePlayerStats";
+import { useLimits } from "../hooks/useLimits";
 
 export function StatsBonus() {
   const {
@@ -22,10 +22,9 @@ export function StatsBonus() {
     resetBonus,
   } = useBonus();
 
-  const { handleLimitBreak, evolutionTraining, handleEvolutionTraining } =
-    usePlayerStats();
+  const { handleLimitBreak, handleEvolutionTraining } = useLimits();
 
-  const { limitBreak } = usePlayerContext();
+  const { limitBreak, evolutionTraining } = usePlayerContext();
 
   return (
     <main className="player-bond">

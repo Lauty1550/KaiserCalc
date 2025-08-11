@@ -1,5 +1,5 @@
 import { PlayerTeamSkillTable } from "./PlayerTeamSkillTable";
-import { PlayerStatsTable } from "./PlayerStatsTable";
+import { PlayerStatsTable } from "./Stats/PlayerStatsTable";
 import { PlayerHiddenTable } from "./PlayerHiddenTable";
 import "../../css/Tables.css";
 import "../../css/PlayerStatsAnimations.css";

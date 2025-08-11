@@ -7,20 +7,19 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: 480px;
+  max-width: 100%;
   flex-basis: 300px;
   flex-grow: 1;
-  padding: 16px;
+  padding: 8px;
   font-family: sans-serif;
   width: 100%;
   box-sizing: border-box;
-  min-width: 320px;
 }
 
 .arrow-buttons {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   /* gap: 16px; */
   user-select: none;
 }
@@ -110,7 +109,7 @@
   padding: 8px 12px;
   font-weight: bold;
   border-radius: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .stamina-title {
@@ -154,33 +153,39 @@
 .stat-item {
   background-color: #f5f5f5;
   border: 1px solid black;
-  padding: 8px;
+  padding: 4px;
   text-align: center;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
   white-space: normal;
-  gap: 8px;
+  gap: 4px;
   flex-wrap: nowrap;
 }
 
 .stat-name {
+  width: auto;
   font-weight: 600;
   color: #333;
   margin-bottom: 0;
   text-align: start;
-  min-width: 70px;
+  min-width: 60px;
+  font-size: 14px;
   flex-shrink: 0;
 }
 
 .stat-values {
   color: #333;
   font-weight: 600;
-  font-size: 16px;
-
+  font-size: 15px;
+  display: flex;
   text-align: right;
   flex-shrink: 0;
+  gap: 6px;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 90px;
 }
 
 .bonus-transition {
@@ -194,6 +199,10 @@
   text-shadow: 0 0 2px black, 0 0 2px black;
   display: inline-block;
   text-align: center;
+  font-size: 13px;
+  width: auto;
+  white-space: nowrap;
+  margin-left: 0;
   /* margin-left: 6px;
   width: 105px; */
 }
@@ -270,18 +279,14 @@
   margin-top: 10px;
 }
 
+/* 
 @media (max-width: 490px) {
-  /* .player-stats-wrapper {
-    min-width: 80%;
-  } */
-
   .stat-item {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     gap: 4px;
     padding: 4px;
-    /* height: 48px; */
   }
 
   .stat-name {
@@ -313,7 +318,7 @@
     min-width: 0;
     max-width: 100%;
   }
-}
+} */
 
 .evolution-training {
   display: flex;

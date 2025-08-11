@@ -14,7 +14,11 @@ export function PlayerHiddenTable() {
 
   return (
     <div className="arrow-buttons">
-      <ArrowLeft onClick={showSkills} />
+      <header className="table-header">
+        <ArrowLeft onClick={showSkills} />
+        <h2 className="table-title-skills"> Ski</h2>
+        <ArrowRight onClick={showStats} />
+      </header>
       <table className="tabla-ha">
         <thead>
           <tr>
@@ -53,7 +57,6 @@ export function PlayerHiddenTable() {
           })}
         </tbody>
       </table>
-      <ArrowRight onClick={showStats} />
     </div>
   );
 }

@@ -1,11 +1,13 @@
 .player-selector {
-  max-width: 400px;
+  width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .player-display {
   margin-top: 45px;
   transform: rotate(-5deg);
-  flex-basis: 497px;
+  /* flex-basis: 497px; */
   /* flex-grow: 1; */
   flex-shrink: 1;
   user-select: none;
@@ -14,19 +16,24 @@
 @media (width < 600px) {
   .player-display {
     transform: rotate(0);
+    width: 100px;
   }
 }
 
 .player-info {
-  /* max-width: 1200px; */
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 50px;
   box-sizing: border-box;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+@media (width < 1274px) {
+  .player-info {
+    flex-wrap: wrap;
+  }
 }
 
 .selector-title {
@@ -67,7 +74,7 @@
   }
 }
 
-@media (width <440px) {
+/* @media (width <440px) {
   [class*="custom-select__menu"] {
     border-radius: 8px;
     overflow: hidden;
@@ -75,7 +82,7 @@
     height: 290px;
     max-width: 290px;
   }
-}
+} */
 
 /* ==== ESTILOS GENERALES ==== */
 
@@ -141,6 +148,7 @@
   [class*="custom-select__menu"] {
     background-color: #333 !important;
     color: white !important;
+    z-index: 2;
   }
 
   [class*="custom-select__single-value"] {

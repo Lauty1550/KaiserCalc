@@ -1,6 +1,6 @@
 .action-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   width: 100%;
   gap: 30px 15px;
 }
@@ -101,6 +101,6 @@
     font-size: 14px;
   }
   .total-label h2 {
-    font-size: 19px;
+    font-size: 17px;
   }
 }

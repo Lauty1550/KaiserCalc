@@ -175,7 +175,6 @@ export function usePlayerStats() {
     defence,
     physical,
     saving,
-    evolutionTraining,
     setSaving,
   };
 }

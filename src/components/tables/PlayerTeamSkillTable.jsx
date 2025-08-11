@@ -27,8 +27,12 @@ export function PlayerTeamSkillTable() {
 
   return (
     <div className="arrow-buttons">
-      <ArrowLeft onClick={showStats} />
       <div>
+        <header className="table-header">
+          <ArrowLeft onClick={showStats} />
+          <h2 className="table-title-skills"> Ski</h2>
+          <ArrowRight onClick={showHiddenAbility} />
+        </header>
         <section className="team-skill-section">
           <h3 className="skills-header">Team Skill</h3>
           <div className="skill-item">
@@ -59,7 +63,6 @@ export function PlayerTeamSkillTable() {
           </div>
         </section>
       </div>
-      <ArrowRight onClick={showHiddenAbility} />
     </div>
   );
 }

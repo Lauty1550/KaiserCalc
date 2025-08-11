@@ -1,11 +1,10 @@
 .tablas-container {
-  width: 480px;
+  max-width: 303px;
 }
 
 .tabla-ha {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
 }
 
 .titulo-tabla-ha {

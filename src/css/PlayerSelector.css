@@ -5,7 +5,6 @@
 }
 
 .player-display {
-  margin-top: 45px;
   transform: rotate(-5deg);
   /* flex-basis: 497px; */
   /* flex-grow: 1; */

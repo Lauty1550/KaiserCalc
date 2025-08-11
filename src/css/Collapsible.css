@@ -1,0 +1,18 @@
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out,
+    padding 0.3s ease-out;
+  padding: 0 8px;
+}
+
+.collapsible-content.open {
+  max-height: 500px;
+  opacity: 1;
+  padding: 8px;
+}
+
+.collapsible-content.closed {
+  padding: 0 8px;
+}

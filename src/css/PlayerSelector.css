@@ -10,6 +10,7 @@
   /* flex-grow: 1; */
   flex-shrink: 1;
   user-select: none;
+  width: 350px;
 }
 
 @media (width <1000px) {
@@ -44,7 +45,7 @@
 }
 
 .character-selection img {
-  width: 30px;
+  width: 40px;
   margin-right: 10px;
 }
 

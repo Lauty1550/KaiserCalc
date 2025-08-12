@@ -18,6 +18,7 @@ export default function Content() {
       <article className="player-info">
         <Player character={character} country={country} nickName={nickName} />
         <PlayerStats />
+
         <section className="bonus-calc">
           <StatsBonus />
           <PlayerInGameStats />

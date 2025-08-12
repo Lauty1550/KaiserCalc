@@ -9,7 +9,7 @@ export function buildCloudinaryUrl({ nickName, country, character }) {
 
   const characterName = character;
 
-  const baseUrl = `https://res.cloudinary.com/dq5ffjlgd/image/upload/Jugadores/${countryName}/${characterName}/`;
+  const baseUrl = `https://res.cloudinary.com/dq5ffjlgd/image/upload/Jugadores/${countryName}/${characterName}`;
 
   return `${baseUrl}/${nickName}.png`;
 }

@@ -1,3 +1,7 @@
+.collapsible-closed {
+  width: 65px;
+}
+
 .collapsible-content {
   max-height: 0;
   overflow: hidden;
@@ -8,11 +12,19 @@
 }
 
 .collapsible-content.open {
-  max-height: 500px;
+  max-height: 600px;
   opacity: 1;
   padding: 8px;
 }
 
 .collapsible-content.closed {
   padding: 0 8px;
+}
+
+.collapsible-toggle {
+  color: white;
+  background-color: rgb(45 55 70);
+  border-radius: 5px;
+  border: 2px solid rgb(64 75 91);
+  margin: 0;
 }

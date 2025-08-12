@@ -25,8 +25,7 @@
   align-items: center;
   gap: 50px;
   box-sizing: border-box;
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 100%;
 }
 
 @media (width < 1274px) {
@@ -59,8 +58,9 @@
 .bonus-calc {
   display: flex;
   flex-direction: column;
+  flex-basis: 530px;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   flex-wrap: wrap;
   gap: 50px;
   max-width: 100%;
@@ -70,6 +70,12 @@
 @media (width <600px) {
   .player-info {
     gap: 30px 10px;
+  }
+}
+
+@media (width <=400px) {
+  .bonus-calc {
+    flex-basis: 300px;
   }
 }
 

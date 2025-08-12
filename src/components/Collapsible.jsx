@@ -5,7 +5,7 @@ export function Collapsible({ children, title }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="collapsible">
+    <div className={`${isOpen ? "collapsible.open" : "collapsible-closed"}`}>
       <button className="collapsible-toggle" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "▲" : "▼"} {title}
       </button>

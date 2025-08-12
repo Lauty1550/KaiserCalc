@@ -1,12 +1,13 @@
 .action-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
   width: 100%;
   gap: 30px 15px;
+  max-width: 480px;
 }
 
 .action-stat {
-  width: 80px;
+  width: 90px;
   height: 80px;
   background-color: rgb(14, 65, 143);
   padding: 5px;
@@ -88,14 +89,15 @@
   width: 80px;
 }
 
-@media (width <=400px) {
+@media (width <=690px) {
   .action-container {
     width: 100%;
-    gap: 30px 13px;
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 30px 2px;
+    grid-template-columns: repeat(auto-fill, minmax(79px, 1fr));
+    max-width: 360px;
   }
   .action-stat {
-    width: 60px;
+    width: 65px;
     height: 60px;
   }
   .action-stat img {

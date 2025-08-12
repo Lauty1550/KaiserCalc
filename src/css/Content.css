@@ -5,9 +5,3 @@
   align-items: center;
   text-align: start;
 }
-
-@media (width < 380px) {
-  .content {
-    margin-left: 0px;
-  }
-}

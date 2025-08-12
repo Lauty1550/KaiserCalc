@@ -12,7 +12,7 @@
 }
 
 .collapsible-content.open {
-  max-height: 600px;
+  max-height: 700px;
   opacity: 1;
   padding: 8px;
 }

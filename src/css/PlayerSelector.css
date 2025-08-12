@@ -58,7 +58,7 @@
 .bonus-calc {
   display: flex;
   flex-direction: column;
-  flex-basis: 530px;
+  flex-basis: 440px;
   justify-content: center;
   align-items: start;
   flex-wrap: wrap;

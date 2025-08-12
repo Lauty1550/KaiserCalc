@@ -1,13 +1,13 @@
 .action-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
   width: 100%;
   gap: 30px 15px;
 }
 
 .action-stat {
-  width: 104px;
-  height: 105px;
+  width: 80px;
+  height: 80px;
   background-color: rgb(14, 65, 143);
   padding: 5px;
   border-radius: 15px;
@@ -57,6 +57,7 @@
   margin-bottom: 5px;
   font-weight: 900;
   color: white;
+  font-size: 1rem;
 }
 
 .total-label {
@@ -81,6 +82,10 @@
   color: rgb(144, 219, 46);
   font-weight: 900;
   font-size: 22px;
+}
+
+.image-action {
+  width: 80px;
 }
 
 @media (width <=400px) {

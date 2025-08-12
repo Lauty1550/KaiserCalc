@@ -7,7 +7,7 @@ import { usePlayerContext } from "../../../context/PlayerContext";
 import { StatsCategory } from "./StatsCategory";
 
 export function PlayerStatsTable() {
-  const { player, statsET } = usePlayerContext();
+  const { player, statsET, evolutionTraining } = usePlayerContext();
   const { saving, attack, defence, physical } = usePlayerStats();
   const { showHiddenAbility, showSkills } = usePlayerTable();
 
@@ -26,7 +26,11 @@ export function PlayerStatsTable() {
 
         <section className="stamina-bar">
           <span className="stamina-title">⚡ Stamina</span>
-          <span className="stamina-value">
+          <span
+            className={`${
+              evolutionTraining > 0 ? "evolution-color" : "stamina-value"
+            }`}
+          >
             {player.stats?.Stamina.Base + statsET.Stamina}
           </span>
         </section>

@@ -4,7 +4,7 @@
 }
 
 .player-stats-container {
-  background-color: rgb(45 55 70);
+  background-color: #0f172a;
   border: 2px solid rgb(64 75 91);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -152,7 +152,7 @@
 }
 
 .stat-item {
-  background-color: rgb(45 55 70);
+  background-color: #1e293b;
   border: 1px solid black;
   padding: 4px;
   text-align: center;
@@ -273,7 +273,7 @@
 }
 
 .stat-title {
-  background-color: #1a4c9c;
+  background-color: #1e40af;
 }
 
 .extra {

@@ -8,6 +8,7 @@ export function ActionStat({ value, action, actionLabel }) {
       </section>
       <figure className="img-container">
         <img
+          className="image-action"
           src={`https://res.cloudinary.com/dq5ffjlgd/image/upload/Icons/Match/${action}.png`}
           alt={action}
         />

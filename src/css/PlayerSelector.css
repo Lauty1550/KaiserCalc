@@ -20,7 +20,6 @@
 
 @media (width < 600px) {
   .player-display {
-    transform: rotate(0);
     width: 150px;
   }
 }
@@ -79,7 +78,7 @@
 
 @media (width <600px) {
   .player-info {
-    gap: 30px 10px;
+    gap: 30px 20px;
   }
   .bonus-calc {
     flex-wrap: wrap;

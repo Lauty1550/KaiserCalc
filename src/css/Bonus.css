@@ -10,6 +10,12 @@
   z-index: 2;
 }
 
+@media (width <= 400px) {
+  .player-bond {
+    width: 100%;
+  }
+}
+
 .h2 {
   margin: 0;
   text-align: center;

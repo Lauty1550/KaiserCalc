@@ -27,7 +27,7 @@ export function PlayerStatsTable() {
         </header>
 
         <section className="stamina-bar">
-          <span className="stamina-title">⚡ Stamina</span>
+          <span className="stamina-title">⚡ {t("stamina")}</span>
           <span
             className={`${
               evolutionTraining > 0 ? "evolution-color" : "stamina-value"

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { usePlayerContext } from "../context/PlayerContext";
 import "../css/Bonus.css";
 import "../css/PlayerStats.css";
@@ -25,10 +26,11 @@ export function StatsBonus() {
   const { handleLimitBreak, handleEvolutionTraining } = useLimits();
 
   const { limitBreak, evolutionTraining } = usePlayerContext();
+  const { t } = useTranslation();
 
   return (
     <main className="player-bond">
-      <h2 className="h2">Team Effects</h2>
+      <h2 className="h2">{t("team_effects")}</h2>
 
       <section className="bond-section">
         <button
@@ -51,7 +53,7 @@ export function StatsBonus() {
 
       <section className="bond-section">
         <fieldset className="bonus-container">
-          <legend>Team Skill</legend>
+          <legend>{t("team_skill")}</legend>
           <input
             className="bonus-input"
             id="teamSkillInput"
@@ -81,7 +83,7 @@ export function StatsBonus() {
         </fieldset>
 
         <fieldset className="bonus-container">
-          <legend>Passive</legend>
+          <legend>{t("passive")}</legend>
           <input
             className="bonus-input"
             id="PassiveInput"

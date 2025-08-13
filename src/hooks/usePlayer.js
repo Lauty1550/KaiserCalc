@@ -4,11 +4,14 @@ import { useCallback, useEffect, useState } from "react";
 import Characters from "../data/Characters.json";
 import { buildCloudinaryUrl } from "../functions/buildCloudinaryUrl";
 import { usePlayerContext } from "../context/PlayerContext";
+import { useTranslation } from "react-i18next";
 
 export function usePlayer() {
   const [groupByCountry, setGroupByCountry] = useState([]);
   const [groupByCharacter, setGroupByCharecter] = useState([]);
   const { id, setPlayer } = usePlayerContext();
+  const { i18n } = useTranslation();
+  const languaje = i18n.language;
 
   useEffect(() => {
     console.log("Montado");
@@ -113,7 +116,7 @@ export function usePlayer() {
 
     const variants = character.jugadores.map(({ id, nick_name, total }) => ({
       value: id,
-      label: nick_name.en,
+      label: nick_name[languaje],
       total,
       image: buildCloudinaryUrl({
         nickName: nick_name.en,

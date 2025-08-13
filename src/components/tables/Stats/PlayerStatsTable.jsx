@@ -5,11 +5,13 @@ import { ArrowRight } from "../../ArrowRight";
 import { usePlayerTable } from "../../../hooks/usePlayerTable";
 import { usePlayerContext } from "../../../context/PlayerContext";
 import { StatsCategory } from "./StatsCategory";
+import { useTranslation } from "react-i18next";
 
 export function PlayerStatsTable() {
   const { player, statsET, evolutionTraining } = usePlayerContext();
   const { saving, attack, defence, physical } = usePlayerStats();
   const { showHiddenAbility, showSkills } = usePlayerTable();
+  const { t } = useTranslation("table");
 
   if (!player || statsET.length < 1) return <p>Cargando jugador...</p>;
 
@@ -43,34 +45,34 @@ export function PlayerStatsTable() {
           {/* GK */}
           {isGK ? (
             <StatsCategory
-              title="Saving"
+              title={t("saving")}
               total={saving}
               statsList={[
-                { name: "Catch", key: "Catch" },
-                { name: "Punch", key: "Punch" },
+                { name: t("catch"), key: "Catch" },
+                { name: t("punch"), key: "Punch" },
               ]}
             />
           ) : (
             <>
               {/* Attack */}
               <StatsCategory
-                title="Attack"
+                title={t("attack")}
                 total={attack}
                 statsList={[
-                  { name: "Dribble", key: "Dribble" },
-                  { name: "Shot", key: "Shot" },
-                  { name: "Pass", key: "Pass" },
+                  { name: t("dribble"), key: "Dribble" },
+                  { name: t("shot"), key: "Shot" },
+                  { name: t("pass"), key: "Pass" },
                 ]}
               />
 
               {/* Defence */}
               <StatsCategory
-                title="Defence"
+                title={t("defence")}
                 total={defence}
                 statsList={[
-                  { name: "Tackle", key: "Tackle" },
-                  { name: "Block", key: "Block" },
-                  { name: "Intercept", key: "Intercept" },
+                  { name: t("tackle"), key: "Tackle" },
+                  { name: t("block"), key: "Block" },
+                  { name: t("intercept"), key: "Intercept" },
                 ]}
               />
             </>
@@ -78,23 +80,23 @@ export function PlayerStatsTable() {
 
           {/* Physical */}
           <StatsCategory
-            title="Physical"
+            title={t("physical")}
             total={physical}
             statsList={[
-              { name: "Speed", key: "Speed" },
-              { name: "Power", key: "Power" },
-              { name: "Technique", key: "Technique" },
+              { name: t("speed"), key: "Speed" },
+              { name: t("power"), key: "Power" },
+              { name: t("technique"), key: "Technique" },
             ]}
           />
 
           {/* High, Low Ball */}
           <footer className="stat-block">
             <section className="stat-item">
-              <span className="stat-name">Low Ball</span>
+              <span className="stat-name">{t("low_ball")}</span>
               <output className="stat-total">
                 {player.extra_stats["Low Ball"]}
               </output>
-              <span className="stat-name">High Ball</span>
+              <span className="stat-name">{t("high_ball")}</span>
               <output className="stat-total">
                 {player.extra_stats["High Ball"]}
               </output>

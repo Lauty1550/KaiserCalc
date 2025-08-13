@@ -3,10 +3,13 @@ import { ArrowLeft } from "../ArrowLeft";
 import { ArrowRight } from "../ArrowRight";
 import { usePlayerTable } from "../../hooks/usePlayerTable";
 import { usePlayerContext } from "../../context/PlayerContext";
+import { useTranslation } from "react-i18next";
 
 export function PlayerHiddenTable() {
   const { player } = usePlayerContext();
   const { showSkills, showStats } = usePlayerTable();
+  const { i18n } = useTranslation();
+  const languaje = i18n.language;
 
   if (!player) return;
 
@@ -29,8 +32,9 @@ export function PlayerHiddenTable() {
         </thead>
         <tbody>
           {hiddenAbilities.map((ability) => {
-            const name = ability.Name?.en || "Sin nombre";
-            const description = ability.Description?.en || "Sin descripción";
+            const name = ability.Name[languaje] || "Sin nombre";
+            const description =
+              ability.Description[languaje] || "Sin descripción";
             let abilityId = "";
 
             try {

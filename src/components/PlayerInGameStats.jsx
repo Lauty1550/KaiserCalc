@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { usePlayerContext } from "../context/PlayerContext";
 import { usePlayerInGameStats } from "../hooks/usePlayerInGameStats";
 import { ActionStat } from "./ActionStat";
@@ -6,6 +7,7 @@ export function PlayerInGameStats() {
   const { player } = usePlayerContext();
   const { shot, dribble, pass, tackle, block, intercept, punch, catchStat } =
     usePlayerInGameStats();
+  const { t } = useTranslation("table");
 
   const isGK = player?.positions == "GK";
 
@@ -13,22 +15,34 @@ export function PlayerInGameStats() {
     <main className="action-container">
       {isGK ? (
         <>
-          <ActionStat action="catch" actionLabel="Catch" value={catchStat} />
-          <ActionStat action="punch" actionLabel="Punch" value={punch} />
+          <ActionStat
+            action="catch"
+            actionLabel={t("catch")}
+            value={catchStat}
+          />
+          <ActionStat action="punch" actionLabel={t("punch")} value={punch} />
         </>
       ) : (
         <>
-          <ActionStat action="shot" actionLabel="Shot" value={shot} />
-          <ActionStat action="pass" actionLabel="Pass" value={pass} />
-          <ActionStat action="onetwo" actionLabel="OneTwo" value={pass} />
-          <ActionStat action="dribble" actionLabel="Dribble" value={dribble} />
-          <ActionStat action="block" actionLabel="Block" value={block} />
+          <ActionStat action="shot" actionLabel={t("shot")} value={shot} />
+          <ActionStat action="pass" actionLabel={t("pass")} value={pass} />
+          <ActionStat action="onetwo" actionLabel={t("one_two")} value={pass} />
+          <ActionStat
+            action="dribble"
+            actionLabel={t("dribble")}
+            value={dribble}
+          />
+          <ActionStat action="block" actionLabel={t("block")} value={block} />
           <ActionStat
             action="intercept"
-            actionLabel="Intercept"
+            actionLabel={t("intercept")}
             value={intercept}
           />
-          <ActionStat action="tackle" actionLabel="Tackle" value={tackle} />
+          <ActionStat
+            action="tackle"
+            actionLabel={t("tackle")}
+            value={tackle}
+          />
         </>
       )}
     </main>

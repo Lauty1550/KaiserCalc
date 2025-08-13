@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { usePlayerContext } from "../../context/PlayerContext";
 import "../../css/PlayerStats.css";
 import { usePlayerTable } from "../../hooks/usePlayerTable";
@@ -7,6 +8,8 @@ import { ArrowRight } from "../ArrowRight";
 export function PlayerTeamSkillTable() {
   const { player } = usePlayerContext();
   const { showStats, showHiddenAbility } = usePlayerTable();
+  const { i18n } = useTranslation();
+  const languaje = i18n.language;
 
   if (!player) return;
 
@@ -42,9 +45,9 @@ export function PlayerTeamSkillTable() {
                 className="hidden-ability-icon"
                 alt="Team Skill"
               />
-              <span className="skill-title">{nameTS.en}</span>
+              <span className="skill-title">{nameTS[languaje]}</span>
             </figure>
-            <p className="skill-description">{descriptionTS.en}</p>
+            <p className="skill-description">{descriptionTS[languaje]}</p>
           </div>
         </section>
 
@@ -57,9 +60,9 @@ export function PlayerTeamSkillTable() {
                 className="hidden-ability-icon"
                 alt="Passive Skill"
               />
-              <span className="skill-title">{namePS.en}</span>
+              <span className="skill-title">{namePS[languaje]}</span>
             </div>
-            <div className="skill-description">{descriptionPS.en}</div>
+            <div className="skill-description">{descriptionPS[languaje]}</div>
           </div>
         </section>
       </div>

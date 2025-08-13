@@ -1,0 +1,20 @@
+{
+  "attack": "Attack",
+  "dribble": "Dribble",
+  "shot": "Shot",
+  "pass": "Pass",
+  "defence": "Defence",
+  "tackle": "Tackle",
+  "block": "Block",
+  "intercept": "Intercept",
+  "physical": "Physical",
+  "speed": "Speed",
+  "power": "Power",
+  "technique": "Technique",
+  "saving": "Saving",
+  "catch": "Catch",
+  "punch": "Punch",
+  "low_ball": "Low Ball",
+  "high_ball": "High Ball",
+  "one_two": "One Two"
+}

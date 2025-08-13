@@ -1,0 +1,20 @@
+{
+  "attack": "Ataque",
+  "dribble": "Regate",
+  "shot": "Remate",
+  "pass": "Pase",
+  "defence": "Defensa",
+  "tackle": "Entrada",
+  "block": "Bloqueo",
+  "intercept": "Intercepción",
+  "physical": "Físico",
+  "speed": "Rapidez",
+  "power": "Potencia",
+  "technique": "Técnica",
+  "saving": "Parada",
+  "catch": "Blocaje",
+  "punch": "Puño",
+  "low_ball": "Balón bajo",
+  "high_ball": "Balón alto",
+  "one_two": "Pared"
+}

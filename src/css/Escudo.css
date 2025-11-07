@@ -1,0 +1,20 @@
+.forma-escudo {
+  width: 230px;
+  background: linear-gradient(#1d2a44, #0e1727);
+  border: 4px solid #c89632;
+  border-radius: 20px 20px 50px 50px;
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.forma-escudo::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 2px solid #c89632;
+  border-radius: 16px 16px 40px 40px;
+  pointer-events: none;
+}

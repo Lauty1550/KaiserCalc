@@ -62,6 +62,7 @@ export function useBonus() {
 
   useEffect(() => {
     totalBonusCalc();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     teamSkillBonus,
     bond,

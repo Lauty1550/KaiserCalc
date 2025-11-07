@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { usePlayerContext } from "../context/PlayerContext";
 
 export function usePlayerInGameStats() {
-  const { stats, bonusTotal, statsET } = usePlayerContext();
+  const { stats, bonusTotal, statsET, shotBonus } = usePlayerContext();
 
   const [shot, setShot] = useState(0);
   const [dribble, setDribble] = useState(0);
@@ -22,7 +22,7 @@ export function usePlayerInGameStats() {
     tackleCalc();
     catchCalc();
     punchCalc();
-  }, [stats, bonusTotal, statsET]);
+  }, [stats, bonusTotal, statsET, shotBonus]);
 
   function applyBonusTotal(value) {
     const bonus = 1 + bonusTotal / 100;
@@ -34,7 +34,8 @@ export function usePlayerInGameStats() {
     if (!stats?.Shot || !stats?.Power) return;
     const shotAux = stats.Shot + statsET["Shot"];
     const powerAux = stats.Power + statsET["Power"];
-    const total = applyBonusTotal(shotAux + powerAux / 2);
+    const shotBonusAux = 1 + shotBonus / 100;
+    const total = applyBonusTotal((shotAux + powerAux / 2) * shotBonusAux);
 
     setShot(total);
   }

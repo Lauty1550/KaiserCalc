@@ -117,6 +117,7 @@ export function usePlayer() {
     const variants = character.jugadores.map(({ id, nick_name, total }) => ({
       value: id,
       label: nick_name[languaje],
+      nickName: nick_name.en,
       total,
       image: buildCloudinaryUrl({
         nickName: nick_name.en,

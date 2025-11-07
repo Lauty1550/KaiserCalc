@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePlayerContext } from "../context/PlayerContext";
+import { BALL_CONDITION_MULTIPLIERS } from "../data/constants";
 
 export function useBonus() {
   const [teamSkillBonus, setTeamSkillBonus] = useState("");
@@ -8,8 +9,8 @@ export function useBonus() {
   const [afinityBonus, setAfinityBonus] = useState(false);
   const [volleyBonus, setVolleyBonus] = useState(false);
   const [headerBonus, setheaderBonus] = useState(false);
-  const [shotType, setShotType] = useState("shot");
-  const { setBonusTotal } = usePlayerContext();
+  const { setBonusTotal, setShotBonus, setShotType, player } =
+    usePlayerContext();
 
   function totalBonusCalc() {
     let afinity = 0;
@@ -27,6 +28,27 @@ export function useBonus() {
     }
     if (teamSkillBonus) {
       teamSkillAux = teamSkillBonus;
+    }
+
+    if (!volleyBonus && !headerBonus) {
+      setShotType("shot");
+      setShotBonus(0);
+    }
+
+    if (player?.extra_stats) {
+      if (volleyBonus) {
+        setShotType("volley");
+        const shotBonusAux =
+          BALL_CONDITION_MULTIPLIERS[player.extra_stats["Low Ball"]];
+        setShotBonus(shotBonusAux);
+      }
+
+      if (headerBonus) {
+        setShotType("heading");
+        const shotBonusAux =
+          BALL_CONDITION_MULTIPLIERS[player.extra_stats["High Ball"]];
+        setShotBonus(shotBonusAux);
+      }
     }
 
     const total =

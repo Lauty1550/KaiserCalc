@@ -148,9 +148,6 @@
   justify-content: space-between;
 }
 
-.stat-grid {
-}
-
 .stat-item {
   background-color: #1e293b;
   border: 1px solid black;
@@ -166,7 +163,7 @@
 }
 
 .stat-name {
-  width: auto;
+  width: 72px;
   font-weight: 600;
   color: white;
   margin-bottom: 0;

@@ -9,6 +9,10 @@ export function PlayerProvider({ children }) {
   const [statsET, setStatsET] = useState([]);
   const [viewMode, setViewMode] = useState("stats");
   const [bonusTotal, setBonusTotal] = useState(0);
+  const [shotBonus, setShotBonus] = useState(0);
+  const [shotType, setShotType] = useState("shot");
+  const [attackBonus, setAttackBonus] = useState(0);
+  const [physicalBonus, setPhysicalBonus] = useState(0);
   const [limitBreak, setLimitBreak] = useState(false);
   const [evolutionTraining, setEvolutionTraining] = useState(0);
 
@@ -31,6 +35,14 @@ export function PlayerProvider({ children }) {
         setLimitBreak,
         evolutionTraining,
         setEvolutionTraining,
+        shotBonus,
+        setShotBonus,
+        attackBonus,
+        setAttackBonus,
+        physicalBonus,
+        setPhysicalBonus,
+        shotType,
+        setShotType,
       }}
     >
       {children}

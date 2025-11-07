@@ -65,6 +65,15 @@
   cursor: pointer;
 }
 
+@media (width < 540px) {
+  .switch-theme-color {
+    position: initial;
+  }
+  .header {
+    font-size: 1rem;
+  }
+}
+
 .dark-mode {
   .header {
     background-color: transparent;

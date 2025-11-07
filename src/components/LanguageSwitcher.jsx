@@ -9,6 +9,8 @@ export function LanguageSwitcher() {
     const path = window.location.pathname.split("/").filter(Boolean);
     path[0] = lng;
     window.history.replaceState({}, "", "/" + path.join("/"));
+
+    window.location.reload();
   };
 
   return (

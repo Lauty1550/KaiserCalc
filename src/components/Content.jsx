@@ -8,7 +8,7 @@ import { PlayerInGameStats } from "./PlayerInGameStats";
 import { StatsBonus } from "./StatsBonus";
 
 export default function Content() {
-  const { character, country, nickName, handleSelectionChange } =
+  const { character, country, nickName, handleSelectionChange, label } =
     useSelectedCharacter();
 
   return (
@@ -16,7 +16,12 @@ export default function Content() {
       <PlayerSelector onSelectionChange={handleSelectionChange} />
 
       <article className="player-info">
-        <Player character={character} country={country} nickName={nickName} />
+        <Player
+          character={character}
+          country={country}
+          nickName={nickName}
+          label={label}
+        />
         <PlayerStats />
 
         <section className="bonus-calc">

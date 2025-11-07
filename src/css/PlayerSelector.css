@@ -6,11 +6,10 @@
 
 .player-display {
   transform: rotate(-5deg);
-  /* flex-basis: 497px; */
+  width: 497px;
   /* flex-grow: 1; */
   flex-shrink: 1;
   user-select: none;
-  width: 350px;
 }
 
 @media (width <1000px) {
@@ -19,11 +18,11 @@
   }
 }
 
-@media (width < 600px) {
+/* @media (width < 600px) {
   .player-display {
     width: 150px;
   }
-}
+} */
 
 .player-info {
   display: flex;
@@ -66,7 +65,7 @@
   margin-bottom: 20px;
 }
 
-@media (width <= 1002px) {
+@media (width <= 1350px) {
   .player-info {
     flex-wrap: wrap;
   }

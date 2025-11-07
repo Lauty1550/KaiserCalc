@@ -1,4 +1,4 @@
-export default function MoonIcon({ color }: { color: string }) {
+export default function MoonIcon({ color }) {
   return (
     <svg width="100%" height="100%" viewBox="0 0 481 481" fill="none">
       <path

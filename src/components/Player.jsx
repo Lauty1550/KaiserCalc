@@ -1,7 +1,7 @@
 import { buildCloudinaryUrl } from "../functions/buildCloudinaryUrl";
 import "../css/Player.css";
 
-export function Player({ nickName, character, country }) {
+export function Player({ nickName, label, character, country }) {
   return (
     <main className="player-display">
       <div className="player-main">
@@ -20,8 +20,7 @@ export function Player({ nickName, character, country }) {
           />
         </section>
         <footer className="footer">
-          {/* <h1>{nickName[language]}</h1> */}
-          <h1>{nickName}</h1>
+          <h1>{label}</h1>
         </footer>
       </div>
     </main>

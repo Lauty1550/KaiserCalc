@@ -27,7 +27,7 @@ export function PlayerSelector({ onSelectionChange }) {
 
   return (
     <main className="player-selector">
-      <h2>Seleccionar {currentStep.name}</h2>
+      <h2 className="h2-selector">Seleccionar {currentStep.name}</h2>
       <Select
         className="custom-select"
         classNamePrefix="custom-select"

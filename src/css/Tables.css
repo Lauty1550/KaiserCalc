@@ -42,3 +42,9 @@
   font-weight: 600;
   color: white;
 }
+
+.light-mode {
+  .titulo-tabla-ha {
+    color: white;
+  }
+}

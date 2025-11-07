@@ -1,7 +1,8 @@
 .player-selector {
-  width: 300px;
+  width: 250px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: -5px;
 }
 
 .player-display {
@@ -12,17 +13,21 @@
   user-select: none;
 }
 
+.h2-selector {
+  margin: 0;
+}
+
 @media (width <1000px) {
   .player-display {
     width: 250px;
   }
 }
 
-/* @media (width < 600px) {
-  .player-display {
-    width: 150px;
+@media (width < 600px) {
+  .player-selector {
+    margin-bottom: 25px;
   }
-} */
+}
 
 .player-info {
   display: flex;

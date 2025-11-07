@@ -14,7 +14,8 @@
 .collapsible-content.open {
   max-height: 700px;
   opacity: 1;
-  padding: 8px;
+  padding: 4px;
+  overflow-y: auto;
 }
 
 .collapsible-content.closed {
@@ -27,4 +28,10 @@
   border-radius: 5px;
   border: 2px solid rgb(64 75 91);
   margin: 0;
+}
+
+@media (width < 670px) {
+  .collapsible-content.open {
+    max-height: 900px;
+  }
 }

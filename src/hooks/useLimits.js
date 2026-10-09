@@ -14,5 +14,14 @@ export function useLimits() {
     } else setEvolutionTraining(0);
   }
 
-  return { handleLimitBreak, handleEvolutionTraining };
+  function resetLimits() {
+    setLimitBreak(false);
+    setEvolutionTraining(0);
+  }
+
+  return {
+    handleLimitBreak,
+    handleEvolutionTraining,
+    resetLimits,
+  };
 }

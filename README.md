@@ -1,12 +1,28 @@
-# React + Vite
+# Kaiser Calc
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Calculadora de estadísticas y sinergias para jugadores de Captain Tsubasa: Dream Team (CTDT).**
 
-Currently, two official plugins are available:
+Kaiser Calc ayuda a la comunidad latina de CTDT a consultar y comparar las estadísticas de sus jugadores, calcular sus valores en partido y analizar las sinergias de equipo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objetivo
 
-## Expanding the ESLint configuration
+Facilitar el análisis de jugadores y equipos mediante cálculos rápidos, sin tener que realizar las cuentas manualmente.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Características
+
+- Consulta de estadísticas de jugadores.
+- Cálculo de valores en partido para distintas acciones, como tiro, pase, regate y defensa.
+- Cálculo de estadísticas adicionales y bonificaciones de equipo.
+- Selección de jugadores para analizar sus sinergias.
+- Interfaz disponible en español e inglés.
+- Modo claro y oscuro.
+- Interfaz adaptable a distintos tamaños de pantalla.
+
+## 🛠️ Tecnologías utilizadas
+
+- React 19
+- JavaScript
+- Vite
+- React Select
+- i18next y react-i18next
+- CSS

@@ -24,7 +24,8 @@ export function StatsBonus() {
     resetBonus,
   } = useBonus();
 
-  const { handleLimitBreak, handleEvolutionTraining } = useLimits();
+  const { handleLimitBreak, handleEvolutionTraining, resetLimits } =
+    useLimits();
 
   const { limitBreak, evolutionTraining } = usePlayerContext();
   const { t } = useTranslation();
@@ -34,6 +35,7 @@ export function StatsBonus() {
       <h2 className="h2">{t("team_effects")}</h2>
 
       <div className="bond-flex">
+        {/* Seccion de bond, Max, evolution training, boton reset  */}
         <section className="bond-section">
           <button
             onClick={handleLimitBreak}
@@ -48,11 +50,18 @@ export function StatsBonus() {
             />
           </button>
 
-          <button onClick={resetBonus} className="stats-buttons">
+          <button
+            onClick={() => {
+              resetBonus();
+              resetLimits();
+            }}
+            className="stats-buttons"
+          >
             <span className="reset">Reset</span>
           </button>
         </section>
 
+        {/* Seccion de TS, Bond, Pasiva  */}
         <section className="bond-section line">
           <fieldset className="bonus-container">
             <legend>{t("team_skill")}</legend>
@@ -100,6 +109,7 @@ export function StatsBonus() {
           </fieldset>
         </section>
 
+        {/* Seccion de afinidad, volea, cabezazo  */}
         <section className="bond-section">
           <div className="afinity-bonus">
             <button

@@ -8,6 +8,9 @@ Kaiser Calc ayuda a la comunidad latina de CTDT a consultar y comparar las estad
 
 Facilitar el análisis de jugadores y equipos mediante cálculos rápidos, sin tener que realizar las cuentas manualmente.
 
+## 🎬 Captura del sistema
+![Demo captura](https://github.com/Lauty1550/KaiserCalc/releases/download/V.1.0/Screen.demo.webp)
+
 ## ✨ Características
 
 - Consulta de estadísticas de jugadores.
